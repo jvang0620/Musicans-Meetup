@@ -1,0 +1,9 @@
+/*style for all footers*/
+footer {
+    font-style: italic;
+    font-size: 12px;
+    /* text-align: center; */
+    padding: 20px 20px 20px 20px;
+    background-color: f3f3f3;
+    color: black;
+}
