@@ -12,7 +12,7 @@ body header nav ol li a{
 }
 
 /* Homepage header/paragraph */
-.welcome {
+.welcome, .categories-of-event, .music-talk-edge{
     margin-top: 200px;
     margin-right: 50px;
     margin-left: 50px;
