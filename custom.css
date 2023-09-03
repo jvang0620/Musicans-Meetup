@@ -1,9 +1,23 @@
 /*style for all footers*/
 footer {
+    text-align: center;
+    padding: 3px;
+    /* background-color: lightblue; */
+    color: black;
+}
+
+
+/* footer {
     font-style: italic;
     font-size: 12px;
-    /* text-align: center; */
     padding: 20px 20px 20px 20px;
     background-color: f3f3f3;
     color: black;
-}
+} */
+
+/* ul.no-bullets {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+} */
+

@@ -11,11 +11,11 @@
 
     <title>Document</title>
 </head>
-<body>
+<body class="bg-light">
 
     <header>
         <!-- Nav Bar -->
-        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <nav class="navbar navbar-expand-lg navbar-light bg-info">
             <div class="container-fluid">
                 <a class="navbar-brand" href="/">
                     <img src="/img-musican-icon/musican-icon.png" alt="musican-icon" width="50" height="auto">
@@ -42,13 +42,14 @@
 
             </div>
         </nav>
-
-        <nav aria-label="breadcrumb">
-            <ol class="breadcrumb">
-              <li class="breadcrumb-item"><a href="#">Events</a></li>
-            </ol>
-        </nav>
-
+        
+        <div class="bg-info">
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="#">Events</a></li>
+                </ol>
+            </nav>
+        </div>
     </header>
 
     <main>
@@ -60,24 +61,65 @@
 
 
     <!--footer at the bottom of page-->
-    <footer>
-        <p>Copyright © All rights reserved<br>
-        manager@myWebsite.com</p>
+    <footer class="bg-info">
+        <p>©2023 Muscian's Meetup<br>
+        <a href="mailto:musican_contact@musicansmeetup.com">musicans_contact@musicansmeetup.com</a><br>
+        <a class="nav-link" href="#">About </a>
+        <a class="nav-link" href="#">Contact</a>
 
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-                        <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="#">New Event</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Sign in</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Login</a>
-                        </li>
-                    </ul>
-         </div>
+        <a class="navbar-brand" href="#">
+            <img src="/social-media-icon/facebook.jpg" alt="musican-icon" width="50" height="auto">
+        </a>
+        <a class="navbar-brand" href="#">
+                <img src="/social-media-icon/twiiter.jpg" alt="musican-icon" width="50" height="auto">
+        </a>
+        <a class="navbar-brand" href="#">
+            <img src="/social-media-icon/youtube.jpg" alt="musican-icon" width="50" height="auto">
+        </a>
+        <!-- <a class="navbar-brand" href="#">
+                        <img src="/social-media-icon/linkedin.jpg" alt="musican-icon" width="50" height="auto">
+                </a> -->
+                <!-- <a class="navbar-brand" href="#">
+                    <img src="/social-media-icon/tiktok.jpg" alt="musican-icon" width="50" height="auto">
+                </a> -->
+                <!-- <a class="navbar-brand" href="#">
+                        <img src="/social-media-icon/pinterest.jpg" alt="musican-icon" width="50" height="auto">
+                </a> -->
+        </p>
     </footer>
+
+
+
+    <!-- <footer class="c-footer text-color--light">
+
+        <div class="d-flex bd-highlight">
+            <div class="p-2 flex-fill bd-highlight">©2023 Muscian's Meetup
+        </div>
+        <div class="p-2 flex-fill bd-highlight">
+            <ul class="navbar no-bullets" id="#navbar"> 
+                <li class = nav-item>
+                    <a class="nav-link" href="#">About</a>
+                    <a class="nav-link" href="#">Contact</a>
+                </li>
+            </ul>
+        </div>
+
+        <div class="p-2 flex-fill bd-highlight">
+            <div class="d-flex justify-content-end">
+                <a class="navbar-brand" href="#">
+                    <img src="/social-media-icon/facebook.jpg" alt="musican-icon" width="50" height="auto">
+                </a>
+                <a class="navbar-brand" href="#">
+                        <img src="/social-media-icon/twiiter.jpg" alt="musican-icon" width="50" height="auto">
+                </a>
+                <a class="navbar-brand" href="#">
+                    <img src="/social-media-icon/youtube.jpg" alt="musican-icon" width="50" height="auto">
+                </a>
+                
+            </div>
+        </div>
+    </footer> -->
+
 
 
     <!-- From Bootstrap (https://getbootstrap.com/docs/5.0/getting-started/introduction/) -->
