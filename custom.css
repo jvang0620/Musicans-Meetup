@@ -1,14 +1,17 @@
+/* Front size for navbar */
+header nav ul li a{
+    font-weight: bold;
+}
+
 /* Font size for breadcrumb*/
-header nav ol li a{
+body header nav ol li a{
     font-weight: bold;
     color: black;
     font-size: 20px;
-}
-
-body header nav ol li a {
     padding: 25px;
 }
 
+/* Homepage header/paragraph */
 .welcome {
     margin-top: 200px;
     margin-right: 50px;
