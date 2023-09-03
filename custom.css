@@ -1,0 +1,6 @@
+/* Font size for breadcrumb*/
+header nav ol li a{
+    font-weight: bold;
+    color: black;
+    font-size: 20px;
+}
