@@ -12,16 +12,25 @@ body header nav ol li a{
 }
 
 /* Homepage header/paragraph */
-.welcome, .categories-of-event, .music-talk-edgeBetty{
+.welcome, .music-talk-edgeBetty{
     margin-top: 200px;
     margin-right: 50px;
     margin-left: 50px;
     margin-bottom: 200px;
 }
 
+/* Form margin */
 .form-margin{
     margin-top: 5%;
     margin-right: 25%;
     margin-left: 25%;
     margin-bottom: 25%;
+}
+
+/* Marin */
+.categories-of-event{
+    margin-top: 5%;
+    margin-right: 25%;
+    margin-left: 25%;
+    margin-bottom: 15%;
 }
