@@ -61,13 +61,14 @@
 
     <main>
         <!-- method="post" enctype="multipart/form-data" -->
-        <form class="form-margin" method="" enctype=""> 
+        <form class="form-margin" action="" method="" enctype=""> 
 
             <h1 class="mb-3 d-flex justify-content-center">New Event</h1>
             <div class="mb-3">
+                
                 <label for="category" class="form-label fw-bold">Category</label>
-                <select class="form-select category" id="category" name="category" aria-label="Category drop down list selection">
-                    <option selected>Select From List</option>
+                <select class="form-select category" id="category" name="category" aria-label="Category drop down list selection" required>
+                    <option selected value="">Select From List</option>
                     <option value="music-talk">Music Talk</option>
                     <option value="meet-up">Meet Up</option>
                     <option value="reharsal">Reharsal</option>
@@ -79,38 +80,38 @@
 
             <div class="mb-3">
               <label for="title" class="form-label fw-bold">Title</label>
-              <input type="text" class="form-control" id="title" name="title" placeholder="add title of event" aria-describedby="Title of event">
+              <input type="text" class="form-control" id="title" name="title" placeholder="add title of event" aria-describedby="Title of event" required>
             </div>
 
             <div class="mb-3">
                 <label for="detail" class="form-label fw-bold">Details</label>
-                <textarea class="form-control" id="detail" name="detail" placeholder="add description of event" aria-describedby="Detail of event" rows="5"></textarea>
+                <textarea class="form-control" id="detail" name="detail" placeholder="add description of event" aria-describedby="Detail of event" rows="5" required></textarea>
             </div>
 
             <div class="mb-3">
                 <label for="where" class="form-label fw-bold">Where</label>
-                <input type="text" class="form-control" id="where" name="where" placeholder="add location of event" aria-describedby="Location of event">
+                <input type="text" class="form-control" id="where" name="where" placeholder="add location of event" aria-describedby="Location of event" required>
             </div>
 
             <div class="mb-3">
                 <label for="start-date" class="form-label fw-bold">Start Date</label>
-                <input type="date" class="form-control" id="start-date" name="start-date" aria-describedby="Start date of event">
+                <input type="date" class="form-control" id="start-date" name="start-date" aria-describedby="Start date of event" required>
             </div>
 
             <div class="mb-3">
                 <label for="end-date" class="form-label fw-bold">End Date</label>
-                <input type="date" class="form-control" id="end-date" name="end-date" aria-describedby="End date of event">
+                <input type="date" class="form-control" id="end-date" name="end-date" aria-describedby="End date of event" required>
             </div>
 
             <!-- https://getbootstrap.com/docs/5.0/forms/form-control/ -->
             <div class="mb-3">
                 <label for="image-upload" class="form-label fw-bold">Upload Image</label>
-                <input class="form-control image-upload" type="file" id="image-upload" name="image-upload" accept="image/png, image/jpg, image/jpeg" aria-describedby="Image of event"> <!--Can add 'multiple' attribute if needed later-->
+                <input class="form-control image-upload" type="file" id="image-upload" name="image-upload" accept="image/png, image/jpg, image/jpeg" aria-describedby="Image of event" required> <!--Can add 'multiple' attribute if needed later-->
             </div>
             
             <!-- https://getbootstrap.com/docs/5.0/components/buttons/ -->
             <div class="d-grid gap-2 col-12 mx-auto">
-                <button class="btn btn-primary" type="submit">Submit</button>
+                <button class="btn btn-primary" type="submit" value="submit">Submit</button>
             </div>
 
             <!-- Other submit botton -->
