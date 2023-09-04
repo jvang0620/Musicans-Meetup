@@ -36,7 +36,7 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
                         <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="newEvent.html">New Event</a>
+                            <a class="nav-link active" aria-current="page" href="#">New Event</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="#">Sign In</a>
@@ -60,13 +60,62 @@
     </header>
 
     <main>
-        <div class="welcome" id="welcome">
-            <h1>Welcome to Musicans Meetup</h1><br>
+        <!-- method="post" enctype="multipart/form-data" -->
+        <form class="form-margin" method="" enctype=""> 
 
-            <p>Your new community is waiting for you. For 20+ years, millions of people have chosen  Musicans Meetup to make real connections over shared interests. There are more than 60 million people on Musicans Meetup looking to gather over shared interests and hobbies, build professional networks, or just have some fun..</p><br>
+            <h1 class="mb-3 d-flex justify-content-center">New Event</h1>
+            <div class="mb-3">
+                <label for="category" class="form-label fw-bold">Category</label>
+                <select class="form-select category" id="category" name="category" aria-label="Category drop down list selection">
+                    <option selected>Select From List</option>
+                    <option value="music-talk">Music Talk</option>
+                    <option value="meet-up">Meet Up</option>
+                    <option value="reharsal">Reharsal</option>
+                    <option value="song-writing">Song Writing</option>
+                    <option value="try-out">Try Outs</option>
+                    <option value="others">Others</option>   
+                </select>
+            </div>
 
-            <p>Check out the Events section to browse available eventlist!</p>
-        </div>
+            <div class="mb-3">
+              <label for="title" class="form-label fw-bold">Title</label>
+              <input type="text" class="form-control" id="title" name="title" placeholder="add title of event" aria-describedby="Title of event">
+            </div>
+
+            <div class="mb-3">
+                <label for="detail" class="form-label fw-bold">Details</label>
+                <textarea class="form-control" id="detail" name="detail" placeholder="add description of event" aria-describedby="Detail of event" rows="5"></textarea>
+            </div>
+
+            <div class="mb-3">
+                <label for="where" class="form-label fw-bold">Where</label>
+                <input type="text" class="form-control" id="where" name="where" placeholder="add location of event" aria-describedby="Location of event">
+            </div>
+
+            <div class="mb-3">
+                <label for="start-date" class="form-label fw-bold">Start Date</label>
+                <input type="date" class="form-control" id="start-date" name="start-date" aria-describedby="Start date of event">
+            </div>
+
+            <div class="mb-3">
+                <label for="end-date" class="form-label fw-bold">End Date</label>
+                <input type="date" class="form-control" id="end-date" name="end-date" aria-describedby="End date of event">
+            </div>
+
+            <!-- https://getbootstrap.com/docs/5.0/forms/form-control/ -->
+            <div class="mb-3">
+                <label for="image-upload" class="form-label fw-bold">Upload Image</label>
+                <input class="form-control image-upload" type="file" id="image-upload" name="image-upload" accept="image/png, image/jpg, image/jpeg" aria-describedby="Image of event"> <!--Can add 'multiple' attribute if needed later-->
+            </div>
+            
+            <!-- https://getbootstrap.com/docs/5.0/components/buttons/ -->
+            <div class="d-grid gap-2 col-12 mx-auto">
+                <button class="btn btn-primary" type="button">Submit</button>
+            </div>
+
+            <!-- Other submit botton -->
+            <!-- <button type="submit" class="btn btn-primary">Submit</button> -->
+          </form>
     </main>
 
 

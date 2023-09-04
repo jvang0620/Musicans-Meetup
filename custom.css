@@ -18,3 +18,10 @@ body header nav ol li a{
     margin-left: 50px;
     margin-bottom: 200px;
 }
+
+.form-margin{
+    margin-top: 5%;
+    margin-right: 25%;
+    margin-left: 25%;
+    margin-bottom: 25%;
+}
