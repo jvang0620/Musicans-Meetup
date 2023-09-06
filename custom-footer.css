@@ -45,33 +45,33 @@
 
 /* For Facebook Icon */
 .footerContainer .socialIcons a:nth-child(1){
-    background: #4267B2;
+    background: #466cb9;
 }
 
 .footerContainer .socialIcons a:nth-child(1):hover{
-    color: #4267B2;
+    color: #466cb9;
     background: lightskyblue;
 }
 
 
 /* For Instagram Icon */
 .footerContainer .socialIcons a:nth-child(2){
-    background: #E1306C;
+    background: #dd306a;
 }
 
 .footerContainer .socialIcons a:nth-child(2):hover{
-    color: E1306C;
+    color: #dd306a;
     background: lightskyblue;
 }
 
 
 /* For Twitter Icon */
 .footerContainer .socialIcons a:nth-child(3){
-    background: #1DA1F2;
+    background: #1e9fef;
 }
 
 .footerContainer .socialIcons a:nth-child(3):hover{
-    color: 1DA1F2;
+    color: #1e9fef;
     background: lightskyblue;
 }
 
@@ -88,22 +88,22 @@
 
 /* For Youtube Icon */
 .footerContainer .socialIcons a:nth-child(5){
-    background: #FF0000;
+    background: #ff0101;
 }
 
 .footerContainer .socialIcons a:nth-child(5):hover{
-    color: #FF0000;
+    color: #ff0101;
     background: lightskyblue;
 }
 
 
 /* For Linkined Icon */
 .footerContainer .socialIcons a:nth-child(6){
-    background: #0077B5;
+    background: #0178b8;
 }
 
 .footerContainer .socialIcons a:nth-child(6):hover{
-    color: #0077B5;
+    color: #0178b8;
     background: lightskyblue;
 }
 
