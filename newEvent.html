@@ -51,13 +51,11 @@
             </div>
         </nav>
         
-        <div class="bg-info">
-            <nav aria-label="breadcrumb">
-                <ol class="breadcrumb">
-                <li class="breadcrumb-item"><a href="events.html">Events</a></li>
-                </ol>
-            </nav>
-        </div>
+        <nav class="bg-info" aria-label="breadcrumb">
+            <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="events.html" class="text-decoration-none">Events</a></li>
+            </ol>
+        </nav>
     </header>
 
     <main>
@@ -69,7 +67,7 @@
 
                 <label for="category" class="form-label fw-bold">Category</label>
                 <select class="form-select category" id="category" name="category" aria-label="Category drop down list selection" required>
-                    <option selected value="">Select From List</option>
+                    <option selected value="">--Select a Category--</option>
                     <option value="music-talk">Music Talk</option>
                     <option value="meet-up">Meet Up</option>
                     <option value="reharsal">Reharsal</option>

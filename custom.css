@@ -3,6 +3,11 @@ header nav ul li a{
     font-weight: bold;
 }
 
+/* Color for body on all pages */
+body {
+    background-color: lightcyan;
+}
+
 /* Font size for breadcrumb*/
 body header nav ol li a{
     font-weight: bold;
@@ -27,7 +32,7 @@ body header nav ol li a{
     margin-bottom: 25%;
 }
 
-/* Marin */
+/* Margin */
 .categories-of-event{
     margin-top: 5%;
     margin-right: 25%;
