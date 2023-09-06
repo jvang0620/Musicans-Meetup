@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="custom-footer.css">
 
     <!-- From Font Awesome (https://cdnjs.com/libraries/font-awesome) for social media icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer">
 
     <title>Musicans Meetup</title>
 </head>
@@ -23,7 +23,7 @@
         <nav class="navbar navbar-expand-lg navbar-light bg-info">
             <div class="container-fluid">
                 <a class="navbar-brand" href="/">
-                    <img src="/img-musican-icon/musican-icon.png" alt="musican-icon" width="100px" height="auto">
+                    <img src="/img-musican-icon/musican-icon.png" alt="musican-icon" width="100">
                 </a>
 
                 <a class="text-dark text-decoration-none h1 fw-bold display-4" href="/">Musicans Meetup</a>
@@ -35,15 +35,9 @@
 
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-                        <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="newEvent.html">New Event</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Sign Up</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Login</a>
-                        </li>
+                        <li class="nav-item"><a class="nav-link active" aria-current="page" href="newEvent.html">New Event</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#">Sign Up</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#">Login</a></li>
                     </ul>
                 </div>
             </div>
@@ -58,8 +52,8 @@
     </header>
 
     <main>
-        <!-- method="post" enctype="multipart/form-data" -->
-        <form class="form-margin" action="#" method="" enctype=""> 
+        <!-- include later: method="post" enctype="multipart/form-data" -->
+        <form class="form-margin" action="#"> 
 
             <h1 class="mb-3 d-flex justify-content-center">New Event</h1>
             <div class="mb-3">
@@ -78,33 +72,33 @@
 
             <div class="mb-3">
               <label for="title" class="form-label fw-bold">Title</label>
-              <input type="text" class="form-control" id="title" name="title" placeholder="add title of event" aria-describedby="Title of event" required>
+              <input type="text" class="form-control" id="title" name="title" placeholder="add title of event" aria-describedby="title" required>
             </div>
 
             <div class="mb-3">
                 <label for="detail" class="form-label fw-bold">Details</label>
-                <textarea class="form-control" id="detail" name="detail" placeholder="add description of event" aria-describedby="Detail of event" rows="5" required></textarea>
+                <textarea class="form-control" id="detail" name="detail" placeholder="add description of event" aria-describedby="detail" rows="5" required></textarea>
             </div>
 
             <div class="mb-3">
                 <label for="where" class="form-label fw-bold">Where</label>
-                <input type="text" class="form-control" id="where" name="where" placeholder="add location of event" aria-describedby="Location of event" required>
+                <input type="text" class="form-control" id="where" name="where" placeholder="add location of event" aria-describedby="where" required>
             </div>
 
             <div class="mb-3">
                 <label for="start-date" class="form-label fw-bold">Start Date</label>
-                <input type="date" class="form-control" id="start-date" name="start-date" aria-describedby="Start date of event" required>
+                <input type="date" class="form-control" id="start-date" name="start-date" aria-describedby="start-date" required>
             </div>
 
             <div class="mb-3">
                 <label for="end-date" class="form-label fw-bold">End Date</label>
-                <input type="date" class="form-control" id="end-date" name="end-date" aria-describedby="End date of event" required>
+                <input type="date" class="form-control" id="end-date" name="end-date" aria-describedby="end-date" required>
             </div>
 
             <!-- https://getbootstrap.com/docs/5.0/forms/form-control/ -->
             <div class="mb-3">
                 <label for="image-upload" class="form-label fw-bold">Upload Image</label>
-                <input class="form-control image-upload" type="file" id="image-upload" name="image-upload" accept="image/png, image/jpg, image/jpeg" aria-describedby="Image of event" required> <!--Can add 'multiple' attribute if needed later-->
+                <input class="form-control image-upload" type="file" id="image-upload" name="image-upload" accept="image/png, image/jpg, image/jpeg" aria-describedby="image-upload" required> <!--Can add 'multiple' attribute if needed later-->
             </div>
             
             <!-- https://getbootstrap.com/docs/5.0/components/buttons/ -->
