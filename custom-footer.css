@@ -1,4 +1,4 @@
-/* Reference: https://www.youtube.com/watch?v=nkZz9DOBzBI */
+/* Reference: https://www.youtube.com/watch?v=nkZz9DOBzBI by FineGap */
 /*style for all footers*/
 
 /* reset */
@@ -40,7 +40,6 @@ footer {
 /* Hover Effects on Social Media Icons */
 .socialIcons a:hover {
     background-color: lightskyblue;
-    /* background-color: rgb(122, 103, 103); */
     transition: 0.5s;
 }
 
@@ -64,7 +63,7 @@ footer {
 }
 
 .footerNav ul li a:hover{
-    opacity: 1;
+    opacity: 0.1;
 }
 
 .footerBottom {
@@ -80,12 +79,9 @@ footer {
     color: black;
 }
 
-/* class name: no-bullets */
-/* footer ul.no-bullets {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-} */
+.footerBottom p  a:hover{
+    opacity: 0.3;
+}
 
 
 /* Makes footer stick to the bottom */
