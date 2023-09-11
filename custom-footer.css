@@ -86,18 +86,6 @@
     background: lightskyblue;
 }
 
-
-/* For Linkined Icon */
-.footerContainer .socialIcons a:nth-child(5){
-    background: #0178b8;
-}
-
-.footerContainer .socialIcons a:nth-child(5):hover{
-    color: #0178b8;
-    background: lightskyblue;
-}
-
-
 /* footerNav */
 .footerNav {
     margin: 30px 0;
