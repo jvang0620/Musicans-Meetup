@@ -60,7 +60,7 @@
 
                 <label for="category" class="form-label fw-bold">Category</label>
                 <select class="form-select category" id="category" name="category" aria-label="Category drop down list selection" required>
-                    <option selected value="">--Select a Category--</option>
+                    <option selected value="" disabled selected>--Select a Category--</option>
                     <option value="music-talk">Music Talk</option>
                     <option value="meet-up">Meet Up</option>
                     <option value="reharsal">Reharsal</option>
@@ -87,12 +87,12 @@
 
             <div class="mb-3">
                 <label for="start-date" class="form-label fw-bold">Start Date</label>
-                <input type="date" class="form-control" id="start-date" name="start-date" aria-describedby="start-date" required>
+                <input type="datetime-local" class="form-control" id="start-date" name="start-date" aria-describedby="start-date" required>
             </div>
 
             <div class="mb-3">
                 <label for="end-date" class="form-label fw-bold">End Date</label>
-                <input type="date" class="form-control" id="end-date" name="end-date" aria-describedby="end-date" required>
+                <input type="datetime-local" class="form-control" id="end-date" name="end-date" aria-describedby="end-date" required>
             </div>
 
             <!-- https://getbootstrap.com/docs/5.0/forms/form-control/ -->
