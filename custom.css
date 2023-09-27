@@ -54,83 +54,6 @@ body header nav ol li a{
     box-sizing: border-box;
 }
 
-/* footercontainer */
-.footerContainer{
-    width: 100%;
-    padding: 70px 30px 20px;
-}
-
-
-/* social Icons */
-.socialIcons {
-    display: flex;
-    justify-content: center;
-}
-
-.socialIcons a {
-    text-decoration: none;
-    padding: 10px;
-    background-color: white;
-    margin: 10px;
-    border-radius: 50%;
-}
-
-.socialIcons a i {
-    font-size: 2em;
-    color: white;
-    opacity: 0.9;
-}
-
-
-/* Hover Effects on Social Media Icons */
-.socialIcons a:hover {
-    background-color: lightskyblue;
-    transition: 0.5s;
-}
-
-
-/* For Facebook Icon */
-.footerContainer .socialIcons a:nth-child(1){
-    background: #466cb9;
-}
-
-.footerContainer .socialIcons a:nth-child(1):hover{
-    color: #466cb9;
-    background: lightskyblue;
-}
-
-
-/* For Instagram Icon */
-.footerContainer .socialIcons a:nth-child(2){
-    background: #dd306a;
-}
-
-.footerContainer .socialIcons a:nth-child(2):hover{
-    color: #dd306a;
-    background: lightskyblue;
-}
-
-
-/* For Twitter Icon */
-.footerContainer .socialIcons a:nth-child(3){
-    background: #1e9fef;
-}
-
-.footerContainer .socialIcons a:nth-child(3):hover{
-    color: #1e9fef;
-    background: lightskyblue;
-}
-
-
-/* For Youtube Icon */
-.footerContainer .socialIcons a:nth-child(4){
-    background: #ff0101;
-}
-
-.footerContainer .socialIcons a:nth-child(4):hover{
-    color: #ff0101;
-    background: lightskyblue;
-}
 
 /* footerNav */
 .footerNav {
@@ -156,33 +79,88 @@ body header nav ol li a{
     opacity: 0.1;
 }
 
-
-/* footerBottom */
-.footerBottom {
+/* footerCopyRightEmail */
+.footerCopyRightEmail {
     padding: 20px;
     text-align: center;
 }
 
-.footerBottom p{
+.footerCopyRightEmail p{
     color: black;
 }
 
-.footerBottom a{
+.footerCopyRightEmail a{
     color: black;
 }
 
-.footerBottom p  a:hover{
+.footerCopyRightEmail p  a:hover{
     opacity: 0.3;
 }
 
 
-/* Makes footer stick to the bottom */
-.sticky-footer{
-    position: sticky;
-    top: 100%;
+/* social Icons */
+.socialIcons {
+    display: flex;
+    justify-content: center;
 }
 
-body {
-    min-height: 100vh;
+.socialIcons a {
+    text-decoration: none;
+    padding: 10px;
+    background-color: white;
+    margin: 25px;
+    border-radius: 50%;
+}
+
+.socialIcons a i {
+    font-size: 2em;
+    color: white;
+    opacity: 0.9;
+}
+
+/* Hover Effects on Social Media Icons */
+.socialIcons a:hover {
+    background-color: lightskyblue;
+    transition: 0.5s;
+}
+
+/* For Facebook Icon */
+.socialIcons a:nth-child(1){
+    background: #466cb9;
+}
+
+.socialIcons a:nth-child(1):hover{
+    color: #466cb9;
+    background: lightskyblue;
+}
+
+/* For Instagram Icon */
+.socialIcons a:nth-child(2){
+    background: #dd306a;
+}
+
+.socialIcons a:nth-child(2):hover{
+    color: #dd306a;
+    background: lightskyblue;
+}
+
+/* For Twitter Icon */
+.socialIcons a:nth-child(3){
+    background: #1e9fef;
+}
+
+.socialIcons a:nth-child(3):hover{
+    color: #1e9fef;
+    background: lightskyblue;
+}
+
+/* For Youtube Icon */
+.socialIcons a:nth-child(4){
+    background: #ff0101;
+}
+
+.socialIcons a:nth-child(4):hover{
+    color: #ff0101;
+    background: lightskyblue;
 }
 
