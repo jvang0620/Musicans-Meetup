@@ -40,3 +40,149 @@ body header nav ol li a{
     margin-left: 25%;
     margin-bottom: 15%;
 }
+
+
+
+/*** Footers CSS ***/
+/* Reference: https://www.youtube.com/watch?v=nkZz9DOBzBI by FineGap */
+/*style for all footers*/
+
+/* reset */
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+/* footercontainer */
+.footerContainer{
+    width: 100%;
+    padding: 70px 30px 20px;
+}
+
+
+/* social Icons */
+.socialIcons {
+    display: flex;
+    justify-content: center;
+}
+
+.socialIcons a {
+    text-decoration: none;
+    padding: 10px;
+    background-color: white;
+    margin: 10px;
+    border-radius: 50%;
+}
+
+.socialIcons a i {
+    font-size: 2em;
+    color: white;
+    opacity: 0.9;
+}
+
+
+/* Hover Effects on Social Media Icons */
+.socialIcons a:hover {
+    background-color: lightskyblue;
+    transition: 0.5s;
+}
+
+
+/* For Facebook Icon */
+.footerContainer .socialIcons a:nth-child(1){
+    background: #466cb9;
+}
+
+.footerContainer .socialIcons a:nth-child(1):hover{
+    color: #466cb9;
+    background: lightskyblue;
+}
+
+
+/* For Instagram Icon */
+.footerContainer .socialIcons a:nth-child(2){
+    background: #dd306a;
+}
+
+.footerContainer .socialIcons a:nth-child(2):hover{
+    color: #dd306a;
+    background: lightskyblue;
+}
+
+
+/* For Twitter Icon */
+.footerContainer .socialIcons a:nth-child(3){
+    background: #1e9fef;
+}
+
+.footerContainer .socialIcons a:nth-child(3):hover{
+    color: #1e9fef;
+    background: lightskyblue;
+}
+
+
+/* For Youtube Icon */
+.footerContainer .socialIcons a:nth-child(4){
+    background: #ff0101;
+}
+
+.footerContainer .socialIcons a:nth-child(4):hover{
+    color: #ff0101;
+    background: lightskyblue;
+}
+
+/* footerNav */
+.footerNav {
+    margin: 30px 0;
+}
+
+.footerNav ul {
+    display: flex;
+    justify-content: center;
+}
+
+.footerNav ul li a{
+    color: black;
+    font-weight: bold;
+    margin: 20px;
+    text-decoration: none;
+    font-size: 1.3em;
+    opacity: 0.7;
+    transition: 0.5a;
+}
+
+.footerNav ul li a:hover{
+    opacity: 0.1;
+}
+
+
+/* footerBottom */
+.footerBottom {
+    padding: 20px;
+    text-align: center;
+}
+
+.footerBottom p{
+    color: black;
+}
+
+.footerBottom a{
+    color: black;
+}
+
+.footerBottom p  a:hover{
+    opacity: 0.3;
+}
+
+
+/* Makes footer stick to the bottom */
+.sticky-footer{
+    position: sticky;
+    top: 100%;
+}
+
+body {
+    min-height: 100vh;
+}
+
