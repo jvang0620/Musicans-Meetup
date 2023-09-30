@@ -3,3 +3,6 @@ img_musicians
 img-musician-icon
 img-musician-meetup
 img-musicians-tryouts
+node_modules
+package-lock.json
+package.json
