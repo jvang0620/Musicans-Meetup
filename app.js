@@ -37,7 +37,7 @@ app.use(morgan('tiny'));
 *********************************************/
 //handles get request at this path '/'.It will render the landing page for the client
 app.get('/', (req, res) => { 
-    res.render('index'); // when we set EJS are our view engine, express knows all our view templetes are stored in the view folder
+    res.render('index.ejs'); // when we set EJS to our view engine, express knows all our view templetes are stored in the view folder
 });
 
 
