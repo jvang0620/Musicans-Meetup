@@ -22,12 +22,13 @@ exports.new = (req, res) => {
     res.render('./story/newEvent.ejs');
 };
 
-//creation of the new stories
+//creation of the new stories. Create new object in array
 exports.create = (req, res) => {
-    res.send('Created a new story');
-    // let story = req.body;
-    // model.save(story);
-    // res.redirect('/stories');
+    // res.send('Created a new story');
+    // console.log(req.body); //for testing
+    let story = req.body;
+    model.save(story);
+    res.redirect('/stories');
 };
 
 //For details
@@ -48,7 +49,7 @@ exports.show = (req, res, next) => {
     //     next(err);
     // }
     if(story) {
-        res.render('./story/show.ejs', {story});
+        res.render('./story/showEvent.ejs', {story});
     }
     res.status(404).send('Cannot find sotry with id ' + id);
 };

@@ -2,7 +2,7 @@
 
     <main>
         <!-- include later: method="post" enctype="multipart/form-data" -->
-        <form class="form-margin" action="#"> 
+        <form class="form-margin" action="/stories" method="POST"> 
 
             <h1 class="mb-3 d-flex justify-content-center">New Event</h1>
             <div class="mb-3">
@@ -23,6 +23,11 @@
               <label for="title" class="form-label fw-bold">Title</label>
               <input type="text" class="form-control" id="title" name="title" placeholder="add title of event" aria-describedby="title" required>
             </div>
+
+            <div class="mb-3">
+                <label for="host" class="form-label fw-bold">Host</label>
+                <input type="text" class="form-control" id="host" name="host" placeholder="add host(s)" aria-describedby="host" required>
+              </div>
 
             <div class="mb-3">
                 <label for="details" class="form-label fw-bold">Details</label>

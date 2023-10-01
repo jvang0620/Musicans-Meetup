@@ -9,6 +9,9 @@
 //require luxon module & import date/time class from luxon model
 const { DateTime } = require("luxon");
 
+//after installing ('npm i uuid'), must require this package
+const {v4: uuidv4} = require('uuid');
+
 const stories = [
 
 //Example:
@@ -27,8 +30,8 @@ const stories = [
     host: 'Chris and Lauren',
     details: 'Come join our Music Talk with Chris and Lauren. Chris and Lauren, who are happyily married, graudated from the University of North Carolina at Charlottle, with their Bachelors of Arts in Music Performace. Chris and Laruen has been playing on the road for the last five years and now they are back to shared with everyone their music experiences.',
     location: 'Music Center Room 101, 2319 Wellesley Ave., Charlotte, NC 28207',
-    startDateTime: '09/14/2023 6pm',
-    endDateTime: '09/14/2023 7pm',
+    startDateTime: DateTime.local(2023, 9, 14, 18, 0).toLocaleString(DateTime.DATETIME_SHORT),
+    endDateTime: DateTime.local(2023, 9, 14, 19, 0).toLocaleString(DateTime.DATETIME_SHORT),
     image: ['../images/img_musicians/chris-and-wife.jpg']
 },
 {
@@ -38,8 +41,8 @@ const stories = [
     host: 'Danny and Leyicet',
     details: 'Come join our Music Talk with Danny and Leyicet. Danny and Leyicet, who are happyily married, graudated from the University of North Carolina at Charlottle, with their Bachelors of Arts in Music Performace. Danny and Leyicet has been playing on the road for the last five years and now they are back to shared with everyone their music experiences.',
     location: 'Music Center Room 101, 2319 Wellesley Ave., Charlotte, NC 28207',
-    startDateTime: '09/15/2023 6pm',
-    endDateTime: '09/15/2023 7pm',
+    startDateTime: DateTime.local(2023, 9, 15, 18, 0).toLocaleString(DateTime.DATETIME_SHORT),
+    endDateTime: DateTime.local(2023, 9, 15, 19, 0).toLocaleString(DateTime.DATETIME_SHORT),
     image: ['../images/img_musicians/danny-and-wife.jpg']
 },
 {
@@ -49,8 +52,8 @@ const stories = [
     host: 'Pat Barret',
     details: 'Come join our Music Talk with Pat Barret. Pat Barret, who are happyily married, graudated from the University of North Carolina at Charlottle, with their Bachelors of Arts in Music Performace. Pat Barret has been playing on the road for the last five years and now they are back to shared with everyone their music experiences.',
     location: 'Music Center Room 101, 2319 Wellesley Ave., Charlotte, NC 28207',
-    startDateTime: '09/16/2023 6pm',
-    endDateTime: '09/16/2023 7pm',
+    startDateTime: DateTime.local(2023, 9, 16, 18, 0).toLocaleString(DateTime.DATETIME_SHORT),
+    endDateTime: DateTime.local(2023, 9, 16, 19, 0).toLocaleString(DateTime.DATETIME_SHORT),
     image: ['../images/img_musicians/Pat-Barrett.jpg']
 },
 {
@@ -60,8 +63,8 @@ const stories = [
     host: 'Elevation Worship',
     details: 'Come to Try Outs with Elevation Worship. Elevation Worship is the lead band at Elevation Church in Charlotte, North Carolina.',
     location: 'Music Center Room 105, 2319 Wellesley Ave., Charlotte, NC 28207',
-    startDateTime: '10/16/2023 6pm',
-    endDateTime: '10/16/2023 7pm',
+    startDateTime: DateTime.local(2023, 10, 16, 18, 0).toLocaleString(DateTime.DATETIME_SHORT),
+    endDateTime: DateTime.local(2023, 10, 16, 19, 0).toLocaleString(DateTime.DATETIME_SHORT),
     image: ['../images/img-musicians-tryouts/eleveation.png']
 },
 {
@@ -71,8 +74,8 @@ const stories = [
     host: 'Casting Crowns',
     details: 'Come to Try Outs with Casting Crowns. Casting Crowns is the lead band at Casting Crowns Church in Charlotte, North Carolina.',
     location: 'Music Center Room 105, 2319 Wellesley Ave., Charlotte, NC 28207',
-    startDateTime: '10/17/2023 6pm',
-    endDateTime: '10/17/2023 7pm',
+    startDateTime: DateTime.local(2023, 10, 17, 18, 0).toLocaleString(DateTime.DATETIME_SHORT),
+    endDateTime: DateTime.local(2023, 10, 17, 19, 0).toLocaleString(DateTime.DATETIME_SHORT),
     image: ['../images/img-musicians-tryouts/casting_crowns.jpg']
 },
 {
@@ -82,8 +85,8 @@ const stories = [
     host: 'Passion Worship',
     details: 'Come to Try Outs with Passion Worship. Passion Worship is the lead band at Passion City Church in Charlotte, North Carolina.',
     location: 'Music Center Room 105, 2319 Wellesley Ave., Charlotte, NC 28207',
-    startDateTime: '10/18/2023 6pm',
-    endDateTime: '10/18/2023 7pm',
+    startDateTime: DateTime.local(2023, 10, 18, 18, 0).toLocaleString(DateTime.DATETIME_SHORT),
+    endDateTime: DateTime.local(2023, 10, 18, 19, 0).toLocaleString(DateTime.DATETIME_SHORT),
     image: ['../images/img-musicians-tryouts/passion-worship.jpg']
 }
 ];
@@ -111,6 +114,14 @@ exports.findById = function(id) {
 }
 
 
+/***************************************
+* Allow me to add story into this array
+****************************************/
+exports.save = function(story) {
+    story.id = uuidv4();
+    // story.createdAt = DateTime.now().toLocaleString(DateTime.DATETIME_SHORT);
+    stories.push(story);
+}
 
 
 

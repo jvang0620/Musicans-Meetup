@@ -26,7 +26,7 @@ app.set('view engine', 'ejs');
 //using this middleware function tells express where to locate the static files
 app.use(express.static('public')); 
 
-//using this middleware function allow me to parse data in the request body (b/c we need to deal with post request)
+//using this middleware function allow me to parse data in the request body (b/c we need to deal with post request). It parse URL encoded data that users attach in the post request. By using this, it will store all the data as name-value pairs in the request body field. 
 app.use(express.urlencoded({extended: true})); 
 
 //using this middleware function helps log all requests and responses in the terminal
