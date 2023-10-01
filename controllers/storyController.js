@@ -32,11 +32,13 @@ exports.create = (req, res) => {
 
 //For details
 exports.show = (req, res, next) => {
-    // let id = req.params.id;
-    // let story = model.findById(id);
-    res.send('send story with id ' + req.params.id);
+    let id = req.params.id;
+    let story = model.findById(id);
+    // res.send('send story with id ' + req.params.id);
+    // res.send(story); //For testing
+    // res.render('./story/show', {story});
 
-    //if story is not undefined
+    // if story is not undefined
     // if(story) {
     //     res.render('./story/show', {story});
     // } else {
@@ -45,6 +47,10 @@ exports.show = (req, res, next) => {
     //     err.status = 404;
     //     next(err);
     // }
+    if(story) {
+        res.render('./story/show', {story});
+    }
+    res.status(404).send('Cannot find sotry with id ' + id);
 };
 
 //for edit

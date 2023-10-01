@@ -104,10 +104,11 @@ exports.find = function() {
 * Looking for stories in the array that has matching id
 **************************************************/
 
-//exports.findById = id => stories.find(story=>story.id ===id);
-// exports.findById = function(id) {
-//     return stories.find(story=>story.id === id);
-// }
+// exports.findById = id => stories.find(story=>story.id ===id); //Can use this or the below code
+exports.findById = function(id) {
+    //return array that has matching id
+    return stories.find(story=>story.id === id);
+}
 
 
 

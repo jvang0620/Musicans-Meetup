@@ -1,0 +1,27 @@
+<%- include('../partials/header.ejs')%>
+
+    <main>
+        <div class="event-main-margin" id="event-main-margin">
+            <h1><%= story.title %> with <%= story.host %></h1>
+            <img src="<%= story.image %>" alt="picture-of-host(s)" width="400" class="img-fluid"> 
+            
+            <br><br>
+            <div class="event-highlights">
+                <ul class="list-unstyled">
+                    <li><span class="fw-bold text-decoration-underline">Host:</span> <%= story.host %> <br> </li>
+                    <li><span class="fw-bold text-decoration-underline">Dates and Time:</span> From <%= story.startDateTime %> to <%= story.endDateTime %><br> </li>
+                    <li><span class="fw-bold text-decoration-underline">Location:</span> <%= story.location %> <br> </li>
+                    <li><span class="fw-bold text-decoration-underline">Details:</span> <%= story.details %></li> 
+                </ul>
+
+                <br>
+
+                <button type="button" class="btn btn-success">Edit</button>
+                <button type="button" class="btn btn-danger">Delete</button>
+            </div>
+            <br>
+        </div>
+    </main>
+
+<%- include('../partials/footer.ejs') %>
+
