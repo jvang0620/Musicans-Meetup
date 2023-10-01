@@ -3,7 +3,7 @@
 <%- include('../partials/header.ejs')%>
 
     <main>
-        <%if(stories.length) { %> <!--If length is not zero and postive-->
+        <%if(stories.length != 0) { %>
             <h1 class="fw-bold display-5 d-flex justify-content-center">Please Select</h1><br> 
             <%stories.forEach(story=>{ %>
                 <div class="container-fluid">
@@ -27,14 +27,13 @@
             <div class="container-fluid">
                 <div class="row">
                     <div class="col">
-                        <br><br><br><br><br><br><br><br><br>
+                        <br><br><br><br><br><br><br><br><br><br><br><br><br>
                         <h1 class="fw-bold display-5 d-flex justify-content-center">There are no events to display</h1>
-                        <br><br><br><br><br><br><br><br><br>
+                        <br><br><br><br><br><br><br><br><br><br><br><br><br>
                     </div>
                 </div>
             </div>
         <%} %>
-        
     </main>
 
 <%- include('../partials/footer.ejs') %>
