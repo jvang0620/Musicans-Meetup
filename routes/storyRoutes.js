@@ -5,6 +5,9 @@
 //Since we are going to use express router object, we need to import express module
 const express = require('express');
 
+//In order to use storyCOntroller.js, we must import it
+const controller = require('../controllers/storyController');
+
 //router object
 const router = express.Router();
 
@@ -15,40 +18,26 @@ const router = express.Router();
 * HTTP Method   -   Path   -  Operation
 *******************************************************************/
 
-//GET /stories: send all stories to the user
-router.get('/', (req, res) => { //change '/stories' to '/'
-    res.send('send all stories');
-});
+//GET route /stories: send all stories to the user
+router.get('/', controller.index);
 
 //GET /stories/new: send HTML form for creating a new story
-router.get('/new', (req, res) => { 
-    res.send('send the new form');
-});
+router.get('/new', controller.new);
 
-//POST /stories: creat a new story
-router.post('/', (req, res) => { 
-    res.send('create a new story');
-});
+//Post /stories: creat a new story
+router.post('/', controller.create);
 
 //GET /stories/:id send details of story indetified by id
-router.get('/:id', (req, res) => { 
-    res.send('send story with id ' + req.params.id);
-});
+router.get('/:id', controller.show);
 
 //GET /stories/:id/edit: send html form for editing an existing story
-router.get('/:id/edit', (req, res) => { 
-    res.send('send the eidt form');
-});
+router.get('/:id/edit', controller.edit);
 
 //PUT (used to update the story) / stories/:id update the story identified by id
-router.put('/:id', (req, res) => { 
-    res.send('update story with id ' + req.params.id);
-});
+router.put('/:id', controller.update);
 
 //Delete /stories/:id: delete the story identified by id
-router.delete('/:id', (req, res) => { 
-    res.send('delete story with id ' + req.params.id);
-});
+router.delete('/:id', controller.delete);
 
 
 
