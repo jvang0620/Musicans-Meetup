@@ -3,21 +3,27 @@
 <%- include('../partials/header.ejs')%>
 
     <main>
-        <%if(stories.length) {%> <!--If length is not zero and postive-->
+        <%if(stories.length) { %> <!--If length is not zero and postive-->
             <h1 class="fw-bold display-5 d-flex justify-content-center">Please Select</h1><br> 
-            <%stories.forEach(story=>{%>
+            <%stories.forEach(story=>{ %>
                 <div class="container-fluid">
                     <div class="row">
                         <div class="col">
-                            <a class="navbar-brand d-flex justify-content-center" href="event.html"><img src="<%= story.image %>" alt="musican-icon" width="400" class="img-fluid rounded"></a>
+                            <a class="navbar-brand d-flex justify-content-center" href="/stories/<%= story.id%>"><img src="<%= story.image %>" alt="musican-icon" width="400" class="img-fluid rounded"></a>
 
-                            <a class="navbar-brand d-flex justify-content-center" href="/stories/<%= story.id%>"><p class="text-center"><%= story.title%></p><br><br> </a>
-                            
-                        </div>
+                            <a class="navbar-brand d-flex justify-content-center" href="/stories/<%= story.id %>">
+                                <p class="text-center">
+                                    <%= story.title %> with <%= story.host %><br>
+                                    From: <%= story.startDateTime %><br> 
+                                    To: <%= story.endDateTime %><br>
+                                </p>
+                                <br><br><br><br> 
+                            </a>
+                        </div>                     
                     </div>
                 </div>
             <% });
-        } else {%>
+        } else { %>
             <div class="container-fluid">
                 <div class="row">
                     <div class="col">
@@ -27,7 +33,7 @@
                     </div>
                 </div>
             </div>
-        <%}%>
+        <%} %>
         
     </main>
 

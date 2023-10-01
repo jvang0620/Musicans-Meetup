@@ -22,7 +22,7 @@ const stories = [
 
 {
     id: '1',
-    title: 'Music Talk with Chris and Lauren',
+    title: 'Music Talk',
     category: 'Music Talk',
     host: 'Chris and Lauren',
     details: 'Come join our Music Talk with Chris and Lauren. Chris and Lauren, who are happyily married, graudated from the University of North Carolina at Charlottle, with their Bachelors of Arts in Music Performace. Chris and Laruen has been playing on the road for the last five years and now they are back to shared with everyone their music experiences.',
@@ -33,7 +33,7 @@ const stories = [
 },
 {
     id: '2',
-    title: 'Music Talk with Danny and Leyicet',
+    title: 'Music Talk',
     category: 'Music Talk',
     host: 'Danny and Leyicet',
     details: 'Come join our Music Talk with Danny and Leyicet. Danny and Leyicet, who are happyily married, graudated from the University of North Carolina at Charlottle, with their Bachelors of Arts in Music Performace. Danny and Leyicet has been playing on the road for the last five years and now they are back to shared with everyone their music experiences.',
@@ -44,7 +44,7 @@ const stories = [
 },
 {
     id: '3',
-    title: 'Music Talk with Pat Barret',
+    title: 'Music Talk',
     category: 'Music Talk',
     host: 'Pat Barret',
     details: 'Come join our Music Talk with Pat Barret. Pat Barret, who are happyily married, graudated from the University of North Carolina at Charlottle, with their Bachelors of Arts in Music Performace. Pat Barret has been playing on the road for the last five years and now they are back to shared with everyone their music experiences.',
@@ -55,7 +55,7 @@ const stories = [
 },
 {
     id: '4',
-    title: 'Try Outs with Elevation Worship',
+    title: 'Try Outs',
     category: 'Try Outs',
     host: 'Elevation Worship',
     details: 'Come to Try Outs with Elevation Worship. Elevation Worship is the lead band at Elevation Church in Charlotte, North Carolina.',
@@ -66,7 +66,7 @@ const stories = [
 },
 {
     id: '5',
-    title: 'Try Outs with Casting Crowns',
+    title: 'Try Outs',
     category: 'Try Outs',
     host: 'Casting Crowns',
     details: 'Come to Try Outs with Casting Crowns. Casting Crowns is the lead band at Casting Crowns Church in Charlotte, North Carolina.',
@@ -77,7 +77,7 @@ const stories = [
 },
 {
     id: '6',
-    title: 'Try Outs with Passion Worship',
+    title: 'Try Outs',
     category: 'Try Outs',
     host: 'Passion Worship',
     details: 'Come to Try Outs with Passion Worship. Passion Worship is the lead band at Passion City Church in Charlotte, North Carolina.',
