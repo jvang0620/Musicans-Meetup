@@ -1,0 +1,34 @@
+<!-- Landing page for stories -->
+
+<%- include('../partials/header.ejs')%>
+
+    <main>
+        <%if(stories.length) {%> <!--If length is not zero and postive-->
+            <h1 class="fw-bold display-5 d-flex justify-content-center">Please Select</h1><br> 
+            <%stories.forEach(story=>{%>
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col">
+                            <a class="navbar-brand d-flex justify-content-center" href="event.html"><img src="<%= story.image %>" alt="musican-icon" width="400" class="img-fluid rounded"></a>
+
+                            <a class="navbar-brand d-flex justify-content-center" href="/stories/<%= story.id%>"><p class="text-center"><%= story.title%></p><br><br> </a>
+                            
+                        </div>
+                    </div>
+                </div>
+            <% });
+        } else {%>
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col">
+                        <br><br><br><br><br><br><br><br><br>
+                        <h1 class="fw-bold display-5 d-flex justify-content-center">There are no events to display</h1>
+                        <br><br><br><br><br><br><br><br><br>
+                    </div>
+                </div>
+            </div>
+        <%}%>
+        
+    </main>
+
+<%- include('../partials/footer.ejs') %>

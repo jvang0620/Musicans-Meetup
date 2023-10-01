@@ -5,15 +5,15 @@
 
 //import module story
 //*Remember, whenever you import a module you specify yourself you need to include the path
-// const model = require('../models/story');
+const model = require('../models/story');
 
 
 //anonymous function set to exports.index. Can be call later.
 exports.index = (req, res) => {
-    res.send('send all stories');
-    //res.send(model.find());
-    //let stories = model.find();
-    //res.render('./story/index', {stories});
+    // res.send('send all stories');
+    // res.send(model.find());
+    let stories = model.find();
+    res.render('./story/index.ejs', {stories});
 };
 
 //used to send new form

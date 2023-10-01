@@ -10,39 +10,93 @@
 const { DateTime } = require("luxon");
 
 const stories = [
+
+//Example:
+// { 
+//     id: '1',
+//     title: 'My life at Charlotte',
+//     content: 'The computer science program is tough. I have to work really hard to earn a decent grade. But I believe it will pay off at the end. :)', 
+//     author: 'Jai Vang',
+//     createdAt: DateTime.now().toLocaleString(DateTime.DATETIME_SHORT) //DATETIME_SHORT from https://moment.github.io/luxon/#/formatting
+// },
+
 {
     id: '1',
-    title: 'My life at Charlotte',
-    content: 'The computer science program is tough. I have to work really hard to earn a decent grade. But I believe it will pay off at the end. :)', 
-    author: 'Jai Vang',
-    createdAt: DateTime.now().toLocaleString(DateTime.DATETIME_SHORT) //DATETIME_SHORT from https://moment.github.io/luxon/#/formatting
+    title: 'Music Talk with Chris and Lauren',
+    category: 'Music Talk',
+    host: 'Chris and Lauren',
+    details: 'Come join our Music Talk with Chris and Lauren. Chris and Lauren, who are happyily married, graudated from the University of North Carolina at Charlottle, with their Bachelors of Arts in Music Performace. Chris and Laruen has been playing on the road for the last five years and now they are back to shared with everyone their music experiences.',
+    location: 'Music Center Room 101, 2319 Wellesley Ave., Charlotte, NC 28207',
+    startDateTime: '09/14/2023 6pm',
+    endDateTime: '09/14/2023 7pm',
+    image: ['../images/img_musicians/chris-and-wife.jpg']
 },
 {
     id: '2',
-    title: 'Learning NBAD',
-    content: 'One of the coolest computer science courses. I can not wait to fully develope a working application. ',
-    author: 'Jai Vang',
-    //createdAt: DateTime.local(2021, 2, 12, 18, 0).toLocaleString(DateTime.DATETIME_SHORT)
-    createdAt: DateTime.now().toLocaleString(DateTime.DATETIME_SHORT)
+    title: 'Music Talk with Danny and Leyicet',
+    category: 'Music Talk',
+    host: 'Danny and Leyicet',
+    details: 'Come join our Music Talk with Danny and Leyicet. Danny and Leyicet, who are happyily married, graudated from the University of North Carolina at Charlottle, with their Bachelors of Arts in Music Performace. Danny and Leyicet has been playing on the road for the last five years and now they are back to shared with everyone their music experiences.',
+    location: 'Music Center Room 101, 2319 Wellesley Ave., Charlotte, NC 28207',
+    startDateTime: '09/15/2023 6pm',
+    endDateTime: '09/15/2023 7pm',
+    image: ['../images/img_musicians/danny-and-wife.jpg']
 },
 {
     id: '3',
-    title: 'My Spring Break',
-    content: 'I can not wait for a break. I am planning to do lots of sleeping and fishing!!! ',
-    author: 'Jai Vang',
-    createdAt: DateTime.now().toLocaleString(DateTime.DATETIME_SHORT)
+    title: 'Music Talk with Pat Barret',
+    category: 'Music Talk',
+    host: 'Pat Barret',
+    details: 'Come join our Music Talk with Pat Barret. Pat Barret, who are happyily married, graudated from the University of North Carolina at Charlottle, with their Bachelors of Arts in Music Performace. Pat Barret has been playing on the road for the last five years and now they are back to shared with everyone their music experiences.',
+    location: 'Music Center Room 101, 2319 Wellesley Ave., Charlotte, NC 28207',
+    startDateTime: '09/16/2023 6pm',
+    endDateTime: '09/16/2023 7pm',
+    image: ['../images/img_musicians/Pat-Barrett.jpg']
+},
+{
+    id: '4',
+    title: 'Try Outs with Elevation Worship',
+    category: 'Try Outs',
+    host: 'Elevation Worship',
+    details: 'Come to Try Outs with Elevation Worship. Elevation Worship is the lead band at Elevation Church in Charlotte, North Carolina.',
+    location: 'Music Center Room 105, 2319 Wellesley Ave., Charlotte, NC 28207',
+    startDateTime: '10/16/2023 6pm',
+    endDateTime: '10/16/2023 7pm',
+    image: ['../images/img-musicians-tryouts/eleveation.png']
+},
+{
+    id: '5',
+    title: 'Try Outs with Casting Crowns',
+    category: 'Try Outs',
+    host: 'Casting Crowns',
+    details: 'Come to Try Outs with Casting Crowns. Casting Crowns is the lead band at Casting Crowns Church in Charlotte, North Carolina.',
+    location: 'Music Center Room 105, 2319 Wellesley Ave., Charlotte, NC 28207',
+    startDateTime: '10/17/2023 6pm',
+    endDateTime: '10/17/2023 7pm',
+    image: ['../images/img-musicians-tryouts/casting_crowns.jpg']
+},
+{
+    id: '6',
+    title: 'Try Outs with Passion Worship',
+    category: 'Try Outs',
+    host: 'Passion Worship',
+    details: 'Come to Try Outs with Passion Worship. Passion Worship is the lead band at Passion City Church in Charlotte, North Carolina.',
+    location: 'Music Center Room 105, 2319 Wellesley Ave., Charlotte, NC 28207',
+    startDateTime: '10/18/2023 6pm',
+    endDateTime: '10/18/2023 7pm',
+    image: ['../images/img-musicians-tryouts/passion-worship.jpg']
 }
 ];
 
 
-/**********************************
-* function is find stories in array 
-***********************************/
+/******************************************
+* function to find stories in array (below)
+*******************************************/
 
-//exports.find = () => stories; 
-// exports.find = function() {
-//     return stories;
-// }
+//exports.find = () => stories; //Can use this or the below code
+exports.find = function() {
+    return stories;
+}
 
 
 
