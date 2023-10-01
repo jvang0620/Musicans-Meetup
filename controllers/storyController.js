@@ -48,7 +48,7 @@ exports.show = (req, res, next) => {
     //     next(err);
     // }
     if(story) {
-        res.render('./story/show', {story});
+        res.render('./story/show.ejs', {story});
     }
     res.status(404).send('Cannot find sotry with id ' + id);
 };
