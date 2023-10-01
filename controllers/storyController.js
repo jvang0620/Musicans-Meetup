@@ -18,8 +18,8 @@ exports.index = (req, res) => {
 
 //used to send new form
 exports.new = (req, res) => {
-    res.send('send the new form');
-    //res.render('./story/new');
+    //res.send('send the new form');
+    res.render('./story/newEvent.ejs');
 };
 
 //creation of the new stories

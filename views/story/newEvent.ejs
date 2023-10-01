@@ -1,4 +1,4 @@
-<%- include('./partials/header.ejs')%>
+<%- include('../partials/header.ejs')%>
 
     <main>
         <!-- include later: method="post" enctype="multipart/form-data" -->
@@ -25,29 +25,29 @@
             </div>
 
             <div class="mb-3">
-                <label for="detail" class="form-label fw-bold">Details</label>
-                <textarea class="form-control" id="detail" name="detail" placeholder="add description of event" aria-describedby="detail" rows="5" required></textarea>
+                <label for="details" class="form-label fw-bold">Details</label>
+                <textarea class="form-control" id="details" name="details" placeholder="add description of event" aria-describedby="details" rows="5" required></textarea>
             </div>
 
             <div class="mb-3">
-                <label for="where" class="form-label fw-bold">Where</label>
-                <input type="text" class="form-control" id="where" name="where" placeholder="add location of event" aria-describedby="where" required>
+                <label for="location" class="form-label fw-bold">Location</label>
+                <input type="text" class="form-control" id="location" name="location" placeholder="add location of event" aria-describedby="location" required>
             </div>
 
             <div class="mb-3">
-                <label for="start-date" class="form-label fw-bold">Start Date</label>
-                <input type="datetime-local" class="form-control" id="start-date" name="start-date" aria-describedby="start-date" required>
+                <label for="startDateTime" class="form-label fw-bold">Start Date/Time</label>
+                <input type="datetime-local" class="form-control" id="startDateTime" name="startDateTime" aria-describedby="startDateTime" required>
             </div>
 
             <div class="mb-3">
-                <label for="end-date" class="form-label fw-bold">End Date</label>
-                <input type="datetime-local" class="form-control" id="end-date" name="end-date" aria-describedby="end-date" required>
+                <label for="endDateTime" class="form-label fw-bold">End Date/Time</label>
+                <input type="datetime-local" class="form-control" id="endDateTime" name="endDateTime" aria-describedby="endDateTime" required>
             </div>
 
             <!-- https://getbootstrap.com/docs/5.0/forms/form-control/ -->
             <div class="mb-3">
-                <label for="image-upload" class="form-label fw-bold">Upload Image</label>
-                <input class="form-control image-upload" type="file" id="image-upload" name="image-upload" accept="image/png, image/jpg, image/jpeg" aria-describedby="image-upload" required> <!--Can add 'multiple' attribute if needed later-->
+                <label for="image" class="form-label fw-bold">Upload Image</label>
+                <input class="form-control image-upload" type="file" id="image" name="image" accept="image/png, image/jpg, image/jpeg" aria-describedby="image" required> <!--Can add 'multiple' attribute if needed later-->
             </div>
             
             <!-- https://getbootstrap.com/docs/5.0/components/buttons/ -->
@@ -57,4 +57,4 @@
         </form>
     </main>
 
-<%- include('./partials/footer.ejs') %>
+<%- include('../partials/footer.ejs') %>
