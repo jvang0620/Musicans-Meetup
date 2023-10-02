@@ -19,7 +19,7 @@ exports.index = (req, res) => {
 //used to send new form
 exports.new = (req, res) => {
     //res.send('send the new form');
-    res.render('./story/newEvent.ejs');
+    res.render('./story/newEventForm.ejs');
 };
 
 //creation of the new stories. Create new object in array
