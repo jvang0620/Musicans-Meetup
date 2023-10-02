@@ -1,0 +1,12 @@
+<!-- Landing page for web application -->
+
+<%- include('./partials/header.ejs')%>
+  
+    <main>
+        <div class="index-main-margin" id="index-main-margin">
+            <h1 class="fw-bold display-3 d-flex justify-content-center pt-5"><%= error.status %> Error</h1><br>
+            <p class="fw-bold display-8 d-flex justify-content-center"><%= error.message %></p>
+        </div>
+    </main>
+
+<%- include('./partials/footer.ejs') %>

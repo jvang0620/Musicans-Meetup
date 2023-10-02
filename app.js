@@ -49,6 +49,41 @@ app.get('/', (req, res) => {
 app.use('/stories', storyRoutes);
 
 
+/***********************************************
+* Error Handlers Below (Instead of using express
+* error handler, we create our own)
+************************************************/
+//error handler that handles 404(Not Found error)
+app.use((req, res, next) => {
+    let err = new Error('The server cannot locate ' + req.url);
+    err.status = 404;
+
+    //call next default error handler with 'err' object
+    next(err);
+});
+
+
+//Middleware error handler 
+//Whenever you use 'next', passing 'err' as an argument, it calls this error handler
+//This should be the last one in our stack, right above our 'listen function' and below
+//all route in application
+app.use((err, req, res, next) => {
+
+    //allow programmer to see error but user can't see it
+    console.log(err.stack); 
+    
+    //if err doesn't have any status
+    if(!err.status) { 
+        err.status = 500; //500 means internal server error
+
+        //Since we don't want to show everything that happens on the server side to user when there's an error, we write our own message
+        err.message = ("Internal Server Error");
+    }
+
+    res.status(err.status);
+    res.render('error', {error: err});
+});
+
 
 /**********************************************
  * start the server

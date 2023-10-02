@@ -40,21 +40,13 @@ exports.show = (req, res, next) => {
     // res.render('./story/show', {story});
 
     // if story is not undefined
-    // if(story) {
-    //     res.render('./story/show', {story});
-    // } else {
-    //     //res.status(404).send('Cannot find sotry with id ' + id);
-    //     let err = new Error('Cannot find a story with id ' + id);
-    //     err.status = 404;
-    //     next(err);
-    // }
-
-    //if story is not undefined and it exists
     if(story) {
-        res.render('./story/showEvent.ejs', {story});
-    } 
-    else {
-        res.status(404).send('SHOW Cannot find story with id ' + id);
+        res.render('./story/show', {story});
+    } else {
+        //res.status(404).send('Cannot find sotry with id ' + id);
+        let err = new Error('Cannot find a story with id ' + id);
+        err.status = 404;
+        next(err);
     }
 };
 
@@ -69,17 +61,17 @@ exports.edit = (req, res, next) => {
         res.render('./story/edit.ejs', {story});
     } 
     else {
-        res.status(404).send('EDIT Cannot find story with id ' + id);
-        // let err = new Error('Cannot find a story with id ' + id);
-        // err.status = 404;
-        // next(err);
+        // res.status(404).send('Cannot find story with id ' + id);
+        let err = new Error('Cannot find a story with id ' + id);
+        err.status = 404;
+        next(err);
     }
     
     // res.send('send story edit form');
 };
 
 //for update
-exports.update = (req, res) => {
+exports.update = (req, res, next) => {
     // res.send('update story with id ' + req.params.id);
     let story = req.body;
     let id = req.params.id;
@@ -89,15 +81,15 @@ exports.update = (req, res) => {
         res.redirect('/stories/' + id);
     }
     else {
-        res.status(404).send('UPDATE Cannot find story with id ' + id);
-        // let err = new Error('Cannot find a story with id ' + id);
-        // err.status = 404;
-        // next(err);
+        // res.status(404).send('Cannot find story with id ' + id);
+        let err = new Error('Cannot find a story with id ' + id);
+        err.status = 404;
+        next(err);
     }
 };
 
 //for delete
-exports.delete = (req, res) => {
+exports.delete = (req, res, next) => {
     // res.send('delete story with id ' + req.params.id);
     let id = req.params.id;
 
@@ -106,9 +98,9 @@ exports.delete = (req, res) => {
         res.redirect('/stories');
     }
     else {
-        res.status(404).send('Cannot find sotry with id ' + id);
-        // let err = new Error('Cannot find a story with id ' + id);
-        // err.status = 404;
-        // next(err);
+        // res.status(404).send('Cannot find sotry with id ' + id);
+        let err = new Error('Cannot find a story with id ' + id);
+        err.status = 404;
+        next(err);
     }
 };
