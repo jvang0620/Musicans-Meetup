@@ -32,7 +32,7 @@ const stories = [
     location: 'Music Center Room 101, 2319 Wellesley Ave., Charlotte, NC 28207',
     startDateTime: DateTime.local(2023, 9, 14, 18, 0).toLocaleString(DateTime.DATETIME_SHORT),
     endDateTime: DateTime.local(2023, 9, 14, 19, 0).toLocaleString(DateTime.DATETIME_SHORT),
-    image: ['../images/img_musicians/chris-and-wife.jpg']
+    image: ['../images/img-musicians/chris-and-wife.jpg']
 },
 {
     id: '2',
@@ -43,7 +43,7 @@ const stories = [
     location: 'Music Center Room 101, 2319 Wellesley Ave., Charlotte, NC 28207',
     startDateTime: DateTime.local(2023, 9, 15, 18, 0).toLocaleString(DateTime.DATETIME_SHORT),
     endDateTime: DateTime.local(2023, 9, 15, 19, 0).toLocaleString(DateTime.DATETIME_SHORT),
-    image: ['../images/img_musicians/danny-and-wife.jpg']
+    image: ['../images/img-musicians/danny-and-wife.jpg']
 },
 {
     id: '3',
@@ -54,7 +54,7 @@ const stories = [
     location: 'Music Center Room 101, 2319 Wellesley Ave., Charlotte, NC 28207',
     startDateTime: DateTime.local(2023, 9, 16, 18, 0).toLocaleString(DateTime.DATETIME_SHORT),
     endDateTime: DateTime.local(2023, 9, 16, 19, 0).toLocaleString(DateTime.DATETIME_SHORT),
-    image: ['../images/img_musicians/Pat-Barrett.jpg']
+    image: ['../images/img-musicians/Pat-Barrett.jpg']
 },
 {
     id: '4',
