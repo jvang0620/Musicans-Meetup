@@ -25,7 +25,7 @@ const stories = [
 
 {
     id: '1',
-    title: 'Music Talk',
+    title: 'Long Live The Musician',
     category: 'Music Talk',
     host: 'Chris and Lauren',
     details: 'Come join our Music Talk with Chris and Lauren. Chris and Lauren, who are happyily married, graudated from the University of North Carolina at Charlottle, with their Bachelors of Arts in Music Performace. Chris and Laruen has been playing on the road for the last five years and now they are back to shared with everyone their music experiences.',
@@ -36,7 +36,7 @@ const stories = [
 },
 {
     id: '2',
-    title: 'Music Talk',
+    title: 'A Piece Of Pie',
     category: 'Music Talk',
     host: 'Danny and Leyicet',
     details: 'Come join our Music Talk with Danny and Leyicet. Danny and Leyicet, who are happyily married, graudated from the University of North Carolina at Charlottle, with their Bachelors of Arts in Music Performace. Danny and Leyicet has been playing on the road for the last five years and now they are back to shared with everyone their music experiences.',
@@ -47,7 +47,7 @@ const stories = [
 },
 {
     id: '3',
-    title: 'Music Talk',
+    title: 'Gone with the Sound',
     category: 'Music Talk',
     host: 'Pat Barret',
     details: 'Come join our Music Talk with Pat Barret. Pat Barret, who are happyily married, graudated from the University of North Carolina at Charlottle, with their Bachelors of Arts in Music Performace. Pat Barret has been playing on the road for the last five years and now they are back to shared with everyone their music experiences.',
@@ -58,7 +58,7 @@ const stories = [
 },
 {
     id: '4',
-    title: 'Try Outs',
+    title: 'Swift',
     category: 'Try Outs',
     host: 'Elevation Worship',
     details: 'Come to Try Outs with Elevation Worship. Elevation Worship is the lead band at Elevation Church in Charlotte, North Carolina.',
@@ -69,7 +69,7 @@ const stories = [
 },
 {
     id: '5',
-    title: 'Try Outs',
+    title: 'Lay IT All Down',
     category: 'Try Outs',
     host: 'Casting Crowns',
     details: 'Come to Try Outs with Casting Crowns. Casting Crowns is the lead band at Casting Crowns Church in Charlotte, North Carolina.',
@@ -80,7 +80,7 @@ const stories = [
 },
 {
     id: '6',
-    title: 'Try Outs',
+    title: 'No Regrets',
     category: 'Try Outs',
     host: 'Passion Worship',
     details: 'Come to Try Outs with Passion Worship. Passion Worship is the lead band at Passion City Church in Charlotte, North Carolina.',
@@ -95,7 +95,6 @@ const stories = [
 /******************************************
 * function to find stories in array (below)
 *******************************************/
-
 //exports.find = () => stories; //Can use this or the below code
 exports.find = function() {
     return stories;
@@ -106,7 +105,6 @@ exports.find = function() {
 /*************************************************
 * Looking for stories in the array that has matching id
 **************************************************/
-
 // exports.findById = id => stories.find(story=>story.id ===id); //Can use this or the below code
 exports.findById = function(id) {
     //return array that has matching id
@@ -119,9 +117,50 @@ exports.findById = function(id) {
 ****************************************/
 exports.save = function(story) {
     story.id = uuidv4();
-    // story.createdAt = DateTime.now().toLocaleString(DateTime.DATETIME_SHORT);
+    //story.createdAt = DateTime.now().toLocaleString(DateTime.DATETIME_SHORT);
     stories.push(story);
 }
 
 
+/***************************************
+* Take new story object and get id
+*****************************************/
+exports.updateById = function(id, newStory) {
+    let story = stories.find(story=>story.id === id);
+
+    //if story exist
+    if(story) {
+        //we update
+        story.category = newStory.category;
+        story.title = newStory.title;
+        story.host = newStory.host;
+        story.details = newStory.details;
+        story.location = newStory.location;
+        story.startDateTime = newStory.startDateTime;
+        story.endDateTime = newStory.endDateTime;
+        story.image = newStory.image;
+        return true;
+    }
+    else {
+        return false;
+    }
+}
+
+/*
+
+exports.updateById = function(id, newStory) {
+    let story = stories.find(story=>story.id === id);
+
+    //if story exist
+    if(story) {
+        story.title = newStory.title;
+        story.content = newStory.content;
+        return true;
+    }
+    else {
+        return false;
+    }
+}
+
+*/
 

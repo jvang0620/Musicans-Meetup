@@ -9,6 +9,7 @@
             <br><br>
             <div class="event-highlights">
                 <ul class="list-unstyled">
+                    <li><span class="fw-bold text-decoration-underline">Title:</span> <%= story.title %> <br> </li>
                     <li><span class="fw-bold text-decoration-underline">Host:</span> <%= story.host %> <br> </li>
                     <li><span class="fw-bold text-decoration-underline">Dates and Time:</span> From <%= story.startDateTime %> to <%= story.endDateTime %><br> </li>
                     <li><span class="fw-bold text-decoration-underline">Location:</span> <%= story.location %> <br> </li>
@@ -16,9 +17,11 @@
                 </ul>
 
                 <br>
-
-                <button type="button" class="btn btn-success">Edit</button>
-                <button type="button" class="btn btn-danger">Delete</button>
+                <form>
+                    <!-- When uers click 'edit' button, it sends a GET request to this URL -->
+                    <button type="submit" formmethod="GET" formaction="/stories/<%= story.id %>/edit" class="btn btn-success">Edit</button>
+                    <button type="button" class="btn btn-danger">Delete</button>
+                </form>
             </div>
             <br>
         </div>

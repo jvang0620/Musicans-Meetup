@@ -3,6 +3,7 @@
 *****************/
 const express = require('express');
 const morgan = require('morgan');
+const methodOverride = require('method-override'); //once stalled 'npm i method-override', require it
 const storyRoutes = require('./routes/storyRoutes'); //must import to be able to use
 
 
@@ -31,6 +32,9 @@ app.use(express.urlencoded({extended: true}));
 
 //using this middleware function helps log all requests and responses in the terminal
 app.use(morgan('tiny')); 
+
+//whenever we recieve a request, even though in HTML form we send a post request, that will be updated by the value of '_method' query string in our url https://www.npmjs.com/package/method-override
+app.use(methodOverride('_method'));
 
 
 /********************************************
