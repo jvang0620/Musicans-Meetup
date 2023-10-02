@@ -1,7 +1,8 @@
-/********************************************
-* This controller module consists of the call
-* back functions from the route module
-**********************************************/
+/*********************************************************************************
+* This controller module consists of the call back functions from the route module
+**********************************************************************************/
+
+
 
 //import module story
 //*Remember, whenever you import a module you specify yourself you need to include the path
@@ -13,7 +14,7 @@ exports.index = (req, res) => {
     // res.send('send all stories');
     // res.send(model.find());
     let stories = model.find();
-    res.render('./story/index.ejs', {stories});
+    res.render('./story/indexEvents.ejs', {stories});
 };
 
 //used to send new form
@@ -58,7 +59,7 @@ exports.edit = (req, res, next) => {
 
     //if story is not undefined and it exists
     if(story) {
-        res.render('./story/edit.ejs', {story});
+        res.render('./story/editEvent.ejs', {story});
     } 
     else {
         // res.status(404).send('Cannot find story with id ' + id);
