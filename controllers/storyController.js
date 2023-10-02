@@ -41,7 +41,7 @@ exports.show = (req, res, next) => {
 
     // if story is not undefined
     if(story) {
-        res.render('./story/show', {story});
+        res.render('./story/showEvent.ejs', {story});
     } else {
         //res.status(404).send('Cannot find sotry with id ' + id);
         let err = new Error('Cannot find a story with id ' + id);
@@ -66,7 +66,6 @@ exports.edit = (req, res, next) => {
         err.status = 404;
         next(err);
     }
-    
     // res.send('send story edit form');
 };
 
