@@ -131,36 +131,18 @@ exports.updateById = function(id, newStory) {
     //if story exist
     if(story) {
         //we update
-        story.category = newStory.category;
+        story.category = newStory.category; //might have to fix in the future
         story.title = newStory.title;
         story.host = newStory.host;
         story.details = newStory.details;
         story.location = newStory.location;
-        story.startDateTime = newStory.startDateTime;
-        story.endDateTime = newStory.endDateTime;
-        story.image = newStory.image;
+        story.startDateTime = newStory.startDateTime; //might have to fix in the future
+        story.endDateTime = newStory.endDateTime; //might have to fix in the future
+        story.image = newStory.image; //might have to fix in the future
         return true;
     }
     else {
         return false;
     }
 }
-
-/*
-
-exports.updateById = function(id, newStory) {
-    let story = stories.find(story=>story.id === id);
-
-    //if story exist
-    if(story) {
-        story.title = newStory.title;
-        story.content = newStory.content;
-        return true;
-    }
-    else {
-        return false;
-    }
-}
-
-*/
 
