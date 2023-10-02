@@ -155,3 +155,13 @@ body header nav ol li a{
     background: lightskyblue;
 }
 
+/* Makes footer stick to the bottom */
+.sticky-footer{
+    position: sticky;
+    top: 100%;
+}
+
+body {
+    min-height: 100vh;
+}
+
