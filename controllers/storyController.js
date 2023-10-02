@@ -98,17 +98,17 @@ exports.update = (req, res) => {
 
 //for delete
 exports.delete = (req, res) => {
-    res.send('delete story with id ' + req.params.id);
-    // let id = req.params.id;
+    // res.send('delete story with id ' + req.params.id);
+    let id = req.params.id;
 
     // //if true
-    // if (model.deleteById(id)) {
-    //     res.redirect('/stories');
-    // }
-    // else {
-    //     //res.status(404).send('Cannot find sotry with id ' + id);
-    //     let err = new Error('Cannot find a story with id ' + id);
-    //     err.status = 404;
-    //     next(err);
-    // }
+    if (model.deleteById(id)) {
+        res.redirect('/stories');
+    }
+    else {
+        res.status(404).send('Cannot find sotry with id ' + id);
+        // let err = new Error('Cannot find a story with id ' + id);
+        // err.status = 404;
+        // next(err);
+    }
 };

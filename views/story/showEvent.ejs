@@ -18,9 +18,9 @@
 
                 <br>
                 <form>
-                    <!-- When uers click 'edit' button, it sends a GET request to this URL -->
+                    <!-- When uers click 'edit or delete' buttons, it sends a GET or POST request to this URL -->
                     <button type="submit" formmethod="GET" formaction="/stories/<%= story.id %>/edit" class="btn btn-success">Edit</button>
-                    <button type="button" class="btn btn-danger">Delete</button>
+                    <button type="submit" formmethod="POST" formaction="/stories/<%= story.id %>?_method=DELETE" class="btn btn-danger">Delete</button>
                 </form>
             </div>
             <br>

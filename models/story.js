@@ -146,3 +146,16 @@ exports.updateById = function(id, newStory) {
     }
 }
 
+//interface that deletes
+exports.deleteById = function(id) {
+    //fucntion to find a story that matches this id and set to index
+    let index = stories.findIndex(story => story.id === id);
+    
+    if (index !== -1) {
+        stories.splice(index, 1); //delete story/event
+        return true;
+    }
+    else {
+        return false; //false if deletion is NOT successful
+    }
+}
