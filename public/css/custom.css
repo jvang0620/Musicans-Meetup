@@ -70,24 +70,11 @@ body header nav ol li a{
     opacity: 0.1;
 }
 
-/* footerCopyRightEmail */
-.footerCopyRightEmail {
-    padding: 20px;
+/* footerCopy */
+.footerCopy {
+    padding: 35px;
     text-align: center;
 }
-
-.footerCopyRightEmail p{
-    color: black;
-}
-
-.footerCopyRightEmail a{
-    color: black;
-}
-
-.footerCopyRightEmail p  a:hover{
-    opacity: 0.3;
-}
-
 
 /* social Icons */
 .socialIcons {

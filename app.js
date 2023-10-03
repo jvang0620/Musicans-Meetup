@@ -51,6 +51,17 @@ app.get('/', (req, res) => {
     res.render('index.ejs'); // when we set EJS to our view engine, express knows all our view templetes are stored in the view folder
 });
 
+//route to about.ejs
+app.get('/about', (req, res) => {
+    res.render('about.ejs');
+});
+
+//route to contact.ejs
+app.get('/contact', (req, res) => {
+    res.render('contact.ejs');
+});
+
+
 //all prefix '/stories' will be send to this router 'storyRoutes' to handle
 app.use('/stories', storyRoutes);
 
