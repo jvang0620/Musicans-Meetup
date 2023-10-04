@@ -14,6 +14,9 @@ exports.index = (req, res) => {
     // res.send('send all stories');
     // res.send(model.find());
     let stories = model.find();
+    // let allCategories = model.getAllCategories();
+    
+    // res.render('./story/indexEvents.ejs', {stories, allCategories});
     res.render('./story/indexEvents.ejs', {stories});
 };
 

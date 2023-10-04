@@ -8,14 +8,44 @@
             <div class="mb-3">
 
                 <label for="category" class="form-label fw-bold">Category</label>
-                <select class="form-select category" id="category" name="category" aria-label="Category drop down list selection" value="<%= story.category %>">
-                    <option selected value="" disabled selected>--Select a Category--</option>
-                    <option value="Music Talk">Music Talk</option>
-                    <option value="Meet Up">Meet Up</option>
-                    <option value="Reharsal">Reharsal</option>
-                    <option value="Song Writing">Song Writing</option>
-                    <option value="Try Outs">Try Outs</option>
-                    <option value="Others">Others</option>   
+                <select class="form-select category" id="category" name="category" aria-label="Category drop down list selection" required>
+                    <option selected value="" disabled>--Select a Category--</option>
+                    
+                    <% if(story.category === 'Music Talk') { %>
+                        <option value="Music Talk" selected>Music Talk</option>
+                    <% } else {%>
+                        <option value="Music Talk">Music Talk</option>
+                    <% } %>
+
+                    <% if(story.category === 'Meet Up') { %>
+                        <option value="Meet Up" selected>Meet Up</option>
+                    <% } else {%>
+                        <option value="Meet Up">Meet Up</option>
+                    <% } %>
+
+                    <% if(story.category === 'Rehearsal') { %>
+                        <option value="Rehearsal" selected>Reharsal</option>
+                    <% } else {%>
+                        <option value="Rehearsal">Rehearsal</option>
+                    <% } %>
+
+                    <% if(story.category === 'Song Writing') { %>
+                        <option value="Song Writing" selected>Song Writing</option>
+                    <% } else {%>
+                        <option value="Song Writing">Song Writing</option>
+                    <% } %>
+
+                    <% if(story.category === 'Try Outs') { %>
+                        <option value="Try Outs" selected>Try Outs</option>
+                    <% } else {%>
+                        <option value="Try Outs">Try Outs</option>
+                    <% } %>
+
+                    <% if(story.category === 'Others') { %>
+                        <option value="Others" selected>Others</option>
+                    <% } else {%>
+                        <option value="Others">Others</option>
+                    <% } %>
                 </select>
             </div>
 
@@ -41,12 +71,12 @@
 
             <div class="mb-3">
                 <label for="startDateTime" class="form-label fw-bold">Start Date/Time</label>
-                <input type="datetime-local" class="form-control" id="startDateTime" name="startDateTime" aria-describedby="startDateTime" value="<%= story.startDateTime %>">
+                <input type="datetime-local" class="form-control" id="startDateTime" name="startDateTime" aria-describedby="startDateTime" value="<%= story.startDateTime %>" required>
             </div>
 
             <div class="mb-3">
                 <label for="endDateTime" class="form-label fw-bold">End Date/Time</label>
-                <input type="datetime-local" class="form-control" id="endDateTime" name="endDateTime" aria-describedby="endDateTime" value="<%= story.endDateTime %>">
+                <input type="datetime-local" class="form-control" id="endDateTime" name="endDateTime" aria-describedby="endDateTime" value="<%= story.endDateTime %>" required>
             </div>
 
             <!-- https://getbootstrap.com/docs/5.0/forms/form-control/ -->

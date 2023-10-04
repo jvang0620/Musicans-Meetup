@@ -34,8 +34,8 @@ const stories = [
     host: 'Chris and Lauren',
     details: 'Come join our Music Talk with Chris and Lauren. Chris and Lauren, who are happyily married, graudated from the University of North Carolina at Charlottle, with their Bachelors of Arts in Music Performace. Chris and Laruen has been playing on the road for the last five years and now they are back to shared with everyone their music experiences.',
     location: 'Music Center Room 101, 2319 Wellesley Ave., Charlotte, NC 28207',
-    startDateTime: DateTime.local(2023, 9, 14, 18, 0).toLocaleString(DateTime.DATETIME_SHORT),
-    endDateTime: DateTime.local(2023, 9, 14, 19, 0).toLocaleString(DateTime.DATETIME_SHORT),
+    startDateTime: '2023-12-20T18:00',
+    endDateTime: '2023-12-20T19:00',
     image: ['../images/img-musicians/chris-and-wife.jpg']
 },
 {
@@ -45,8 +45,8 @@ const stories = [
     host: 'Danny and Leyicet',
     details: 'Come join our Music Talk with Danny and Leyicet. Danny and Leyicet, who are happyily married, graudated from the University of North Carolina at Charlottle, with their Bachelors of Arts in Music Performace. Danny and Leyicet has been playing on the road for the last five years and now they are back to shared with everyone their music experiences.',
     location: 'Music Center Room 101, 2319 Wellesley Ave., Charlotte, NC 28207',
-    startDateTime: DateTime.local(2023, 9, 15, 18, 0).toLocaleString(DateTime.DATETIME_SHORT),
-    endDateTime: DateTime.local(2023, 9, 15, 19, 0).toLocaleString(DateTime.DATETIME_SHORT),
+    startDateTime: '2023-13-20T18:00',
+    endDateTime: '2023-13-20T18:00',
     image: ['../images/img-musicians/danny-and-wife.jpg']
 },
 {
@@ -56,8 +56,8 @@ const stories = [
     host: 'Pat Barret',
     details: 'Come join our Music Talk with Pat Barret. Pat Barret, who are happyily married, graudated from the University of North Carolina at Charlottle, with their Bachelors of Arts in Music Performace. Pat Barret has been playing on the road for the last five years and now they are back to shared with everyone their music experiences.',
     location: 'Music Center Room 101, 2319 Wellesley Ave., Charlotte, NC 28207',
-    startDateTime: DateTime.local(2023, 9, 16, 18, 0).toLocaleString(DateTime.DATETIME_SHORT),
-    endDateTime: DateTime.local(2023, 9, 16, 19, 0).toLocaleString(DateTime.DATETIME_SHORT),
+    startDateTime: '2023-12-22T18:00',
+    endDateTime: '2023-12-22T18:00',
     image: ['../images/img-musicians/Pat-Barrett.jpg']
 },
 {
@@ -67,8 +67,8 @@ const stories = [
     host: 'Elevation Worship',
     details: 'Come to Try Outs with Elevation Worship. Elevation Worship is the lead band at Elevation Church in Charlotte, North Carolina.',
     location: 'Music Center Room 105, 2319 Wellesley Ave., Charlotte, NC 28207',
-    startDateTime: DateTime.local(2023, 10, 16, 18, 0).toLocaleString(DateTime.DATETIME_SHORT),
-    endDateTime: DateTime.local(2023, 10, 16, 19, 0).toLocaleString(DateTime.DATETIME_SHORT),
+    startDateTime: '2023-12-23T18:00',
+    endDateTime: '2023-12-23T18:00',
     image: ['../images/img-musicians-tryouts/eleveation.png']
 },
 {
@@ -78,8 +78,8 @@ const stories = [
     host: 'Casting Crowns',
     details: 'Come to Try Outs with Casting Crowns. Casting Crowns is the lead band at Casting Crowns Church in Charlotte, North Carolina.',
     location: 'Music Center Room 105, 2319 Wellesley Ave., Charlotte, NC 28207',
-    startDateTime: DateTime.local(2023, 10, 17, 18, 0).toLocaleString(DateTime.DATETIME_SHORT),
-    endDateTime: DateTime.local(2023, 10, 17, 19, 0).toLocaleString(DateTime.DATETIME_SHORT),
+    startDateTime: '2023-12-24T18:00',
+    endDateTime: '2023-12-24T18:00',
     image: ['../images/img-musicians-tryouts/casting_crowns.jpg']
 },
 {
@@ -89,8 +89,8 @@ const stories = [
     host: 'Passion Worship',
     details: 'Come to Try Outs with Passion Worship. Passion Worship is the lead band at Passion City Church in Charlotte, North Carolina.',
     location: 'Music Center Room 105, 2319 Wellesley Ave., Charlotte, NC 28207',
-    startDateTime: DateTime.local(2023, 10, 18, 18, 0).toLocaleString(DateTime.DATETIME_SHORT),
-    endDateTime: DateTime.local(2023, 10, 18, 19, 0).toLocaleString(DateTime.DATETIME_SHORT),
+    startDateTime: '2023-12-30T18:00',
+    endDateTime: '2023-12-30T18:00',
     image: ['../images/img-musicians-tryouts/passion-worship.jpg']
 }
 ];
@@ -103,6 +103,31 @@ const stories = [
 exports.find = function() {
     return stories;
 }
+
+// exports.getAllCategories = function() {
+//     //create an arry that store all the unique categories (Unique is the key-word)
+//     const uniqueCategoryArray = [];
+
+//     //return stories.find(story=>story.id === id);
+
+//     //check to see, loop through every elemnt in array
+//     //stories.forEach(story => story.category === 
+
+
+        
+//     // array.forEach((category) => {
+//     //     if!array.includes(category)) {
+//     //         uniqueCategoryArray.push(category);
+//     //     }
+//     // })
+
+//     //check category if exist
+//     //if exist do nothing
+//     //but if not, add category to the array
+
+//     //4 lines of codes
+
+// }
 
 
 
