@@ -146,27 +146,26 @@ exports.findById = function(id) {
 ****************************************/
 exports.save = function(event) {
     event.id = uuidv4();
-    //event.createdAt = DateTime.now().toLocaleString(DateTime.DATETIME_SHORT);
     events.push(event);
 }
 
 
 /***************************************
 * Take new event object and get id
-*****************************************/
+****************************************/
 exports.updateById = function(id, newEvent) {
     let event = events.find(event=>event.id === id);
 
     //if event exist
     if(event) {
         //we update
-        event.category = newEvent.category; //might have to fix in the future
+        event.category = newEvent.category; 
         event.title = newEvent.title;
         event.host = newEvent.host;
         event.details = newEvent.details;
         event.location = newEvent.location;
-        event.startDateTime = newEvent.startDateTime; //might have to fix in the future
-        event.endDateTime = newEvent.endDateTime; //might have to fix in the future
+        event.startDateTime = newEvent.startDateTime; 
+        event.endDateTime = newEvent.endDateTime; 
         event.image = newEvent.image; //might have to fix in the future
         return true;
     }
@@ -175,9 +174,11 @@ exports.updateById = function(id, newEvent) {
     }
 }
 
-//interface that deletes
+/**************************************
+* interface that deletes 
+***************************************/
 exports.deleteById = function(id) {
-    //fucntion to find a event that matches this id and set to index
+    //function to find a event that matches this id and set to index
     let index = events.findIndex(event => event.id === id);
     
     if (index !== -1) {
