@@ -16,7 +16,7 @@ const { DateTime } = require("luxon");
 //after installing ('npm i uuid'), must require this package
 const {v4: uuidv4} = require('uuid');
 
-const stories = [
+const events = [
 
 //Example:
 // { 
@@ -97,21 +97,21 @@ const stories = [
 
 
 /******************************************
-* function to find stories in array (below)
+* function to find events in array (below)
 *******************************************/
-//exports.find = () => stories; //Can use this or the below code
+//exports.find = () => events; //Can use this or the below code
 exports.find = function() {
-    return stories;
+    return events;
 }
 
 // exports.getAllCategories = function() {
 //     //create an arry that store all the unique categories (Unique is the key-word)
 //     const uniqueCategoryArray = [];
 
-//     //return stories.find(story=>story.id === id);
+//     //return events.find(event=>event.id === id);
 
 //     //check to see, loop through every elemnt in array
-//     //stories.forEach(story => story.category === 
+//     //events.forEach(event => event.category === 
 
 
         
@@ -132,42 +132,42 @@ exports.find = function() {
 
 
 /*************************************************
-* Looking for stories in the array that has matching id
+* Looking for events in the array that has matching id
 **************************************************/
-// exports.findById = id => stories.find(story=>story.id ===id); //Can use this or the below code
+// exports.findById = id => events.find(event=>event.id ===id); //Can use this or the below code
 exports.findById = function(id) {
     //return array that has matching id
-    return stories.find(story=>story.id === id);
+    return events.find(event=>event.id === id);
 }
 
 
 /***************************************
-* Allow me to add story into this array
+* Allow me to add event into this array
 ****************************************/
-exports.save = function(story) {
-    story.id = uuidv4();
-    //story.createdAt = DateTime.now().toLocaleString(DateTime.DATETIME_SHORT);
-    stories.push(story);
+exports.save = function(event) {
+    event.id = uuidv4();
+    //event.createdAt = DateTime.now().toLocaleString(DateTime.DATETIME_SHORT);
+    events.push(event);
 }
 
 
 /***************************************
-* Take new story object and get id
+* Take new event object and get id
 *****************************************/
-exports.updateById = function(id, newStory) {
-    let story = stories.find(story=>story.id === id);
+exports.updateById = function(id, newEvent) {
+    let event = events.find(event=>event.id === id);
 
-    //if story exist
-    if(story) {
+    //if event exist
+    if(event) {
         //we update
-        story.category = newStory.category; //might have to fix in the future
-        story.title = newStory.title;
-        story.host = newStory.host;
-        story.details = newStory.details;
-        story.location = newStory.location;
-        story.startDateTime = newStory.startDateTime; //might have to fix in the future
-        story.endDateTime = newStory.endDateTime; //might have to fix in the future
-        story.image = newStory.image; //might have to fix in the future
+        event.category = newEvent.category; //might have to fix in the future
+        event.title = newEvent.title;
+        event.host = newEvent.host;
+        event.details = newEvent.details;
+        event.location = newEvent.location;
+        event.startDateTime = newEvent.startDateTime; //might have to fix in the future
+        event.endDateTime = newEvent.endDateTime; //might have to fix in the future
+        event.image = newEvent.image; //might have to fix in the future
         return true;
     }
     else {
@@ -177,11 +177,11 @@ exports.updateById = function(id, newStory) {
 
 //interface that deletes
 exports.deleteById = function(id) {
-    //fucntion to find a story that matches this id and set to index
-    let index = stories.findIndex(story => story.id === id);
+    //fucntion to find a event that matches this id and set to index
+    let index = events.findIndex(event => event.id === id);
     
     if (index !== -1) {
-        stories.splice(index, 1); //delete story/event
+        events.splice(index, 1); //delete event
         return true;
     }
     else {

@@ -2,7 +2,7 @@
 
     <main>
         <!-- include later: enctype="multipart/form-data" -->
-        <form class="form-margin" action="/stories/<%= story.id %>?_method=PUT" method="POST"> 
+        <form class="form-margin" action="/events/<%= event.id %>?_method=PUT" method="POST"> 
 
             <h1 class="mb-3 d-flex justify-content-center">New Event</h1>
             <div class="mb-3">
@@ -11,37 +11,37 @@
                 <select class="form-select category" id="category" name="category" aria-label="Category drop down list selection" required>
                     <option selected value="" disabled>--Select a Category--</option>
                     
-                    <% if(story.category === 'Music Talk') { %>
+                    <% if(event.category === 'Music Talk') { %>
                         <option value="Music Talk" selected>Music Talk</option>
                     <% } else {%>
                         <option value="Music Talk">Music Talk</option>
                     <% } %>
 
-                    <% if(story.category === 'Meet Up') { %>
+                    <% if(event.category === 'Meet Up') { %>
                         <option value="Meet Up" selected>Meet Up</option>
                     <% } else {%>
                         <option value="Meet Up">Meet Up</option>
                     <% } %>
 
-                    <% if(story.category === 'Rehearsal') { %>
+                    <% if(event.category === 'Rehearsal') { %>
                         <option value="Rehearsal" selected>Reharsal</option>
                     <% } else {%>
                         <option value="Rehearsal">Rehearsal</option>
                     <% } %>
 
-                    <% if(story.category === 'Song Writing') { %>
+                    <% if(event.category === 'Song Writing') { %>
                         <option value="Song Writing" selected>Song Writing</option>
                     <% } else {%>
                         <option value="Song Writing">Song Writing</option>
                     <% } %>
 
-                    <% if(story.category === 'Try Outs') { %>
+                    <% if(event.category === 'Try Outs') { %>
                         <option value="Try Outs" selected>Try Outs</option>
                     <% } else {%>
                         <option value="Try Outs">Try Outs</option>
                     <% } %>
 
-                    <% if(story.category === 'Others') { %>
+                    <% if(event.category === 'Others') { %>
                         <option value="Others" selected>Others</option>
                     <% } else {%>
                         <option value="Others">Others</option>
@@ -51,38 +51,38 @@
 
             <div class="mb-3">
               <label for="title" class="form-label fw-bold">Title</label>
-              <input type="text" class="form-control" id="title" name="title" placeholder="add title of event" aria-describedby="title" value = "<%= story.title%>" required>
+              <input type="text" class="form-control" id="title" name="title" placeholder="add title of event" aria-describedby="title" value = "<%= event.title%>" required>
             </div>
 
             <div class="mb-3">
                 <label for="host" class="form-label fw-bold">Host</label>
-                <input type="text" class="form-control" id="host" name="host" placeholder="add host(s)" aria-describedby="host" value="<%= story.host %>" required>
+                <input type="text" class="form-control" id="host" name="host" placeholder="add host(s)" aria-describedby="host" value="<%= event.host %>" required>
               </div>
 
             <div class="mb-3">
                 <label for="details" class="form-label fw-bold">Details</label>
-                <textarea class="form-control" id="details" name="details" placeholder="add description of event" aria-describedby="details" rows="5" required> <%= story.details %> </textarea>
+                <textarea class="form-control" id="details" name="details" placeholder="add description of event" aria-describedby="details" rows="5" required> <%= event.details %> </textarea>
             </div>
 
             <div class="mb-3">
                 <label for="location" class="form-label fw-bold">Location</label>
-                <input type="text" class="form-control" id="location" name="location" placeholder="add location of event" aria-describedby="location" value="<%= story.location %>" required>
+                <input type="text" class="form-control" id="location" name="location" placeholder="add location of event" aria-describedby="location" value="<%= event.location %>" required>
             </div>
 
             <div class="mb-3">
                 <label for="startDateTime" class="form-label fw-bold">Start Date/Time</label>
-                <input type="datetime-local" class="form-control" id="startDateTime" name="startDateTime" aria-describedby="startDateTime" value="<%= story.startDateTime %>" required>
+                <input type="datetime-local" class="form-control" id="startDateTime" name="startDateTime" aria-describedby="startDateTime" value="<%= event.startDateTime %>" required>
             </div>
 
             <div class="mb-3">
                 <label for="endDateTime" class="form-label fw-bold">End Date/Time</label>
-                <input type="datetime-local" class="form-control" id="endDateTime" name="endDateTime" aria-describedby="endDateTime" value="<%= story.endDateTime %>" required>
+                <input type="datetime-local" class="form-control" id="endDateTime" name="endDateTime" aria-describedby="endDateTime" value="<%= event.endDateTime %>" required>
             </div>
 
             <!-- https://getbootstrap.com/docs/5.0/forms/form-control/ -->
             <div class="mb-3">
                 <label for="image" class="form-label fw-bold">Upload Image</label>
-                <input class="form-control image-upload" type="file" id="image" name="image" accept="image/png, image/jpg, image/jpeg" aria-describedby="image" value="<%= story.image %>"> <!--Can add 'multiple' attribute if needed later-->
+                <input class="form-control image-upload" type="file" id="image" name="image" accept="image/png, image/jpg, image/jpeg" aria-describedby="image" value="<%= event.image %>"> <!--Can add 'multiple' attribute if needed later-->
             </div>
             
             <!-- https://getbootstrap.com/docs/5.0/components/buttons/ -->

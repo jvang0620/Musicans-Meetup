@@ -10,7 +10,7 @@
 const express = require('express');
 const morgan = require('morgan');
 const methodOverride = require('method-override'); //once stalled 'npm i method-override', require it
-const storyRoutes = require('./routes/storyRoutes'); //must import to be able to use
+const eventRoutes = require('./routes/eventRoutes'); //must import to be able to use
 
 
 /****************
@@ -62,8 +62,8 @@ app.get('/contact', (req, res) => {
 });
 
 
-//all prefix '/stories' will be send to this router 'storyRoutes' to handle
-app.use('/stories', storyRoutes);
+//all prefix '/events' will be send to this router 'eventRoutes' to handle
+app.use('/events', eventRoutes);
 
 
 /***********************************************

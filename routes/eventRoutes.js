@@ -1,12 +1,12 @@
 /*******************************************************************
-* This module is used to define all routes related to story requests
+* This module is used to define all routes related to event requests
 *******************************************************************/
 
 //Since we are going to use express router object, we need to import express module
 const express = require('express');
 
-//In order to use storyCOntroller.js, we must import it
-const controller = require('../controllers/storyController');
+//In order to use eventOntroller.js, we must import it
+const controller = require('../controllers/eventController');
 
 //router object
 const router = express.Router();
@@ -18,25 +18,25 @@ const router = express.Router();
 * HTTP Method   -   Path   -  Operation
 *******************************************************************/
 
-//GET route /stories: send all stories to the user
+//GET route /events: send all events to the user
 router.get('/', controller.index);
 
-//GET /stories/new: send HTML form for creating a new story
+//GET /events/new: send HTML form for creating a new event
 router.get('/new', controller.new);
 
-//Post /stories: creat a new story
+//Post /events: creat a new event
 router.post('/', controller.create);
 
-//GET /stories/:id send details of story indetified by id
+//GET /events/:id send details of event indetified by id
 router.get('/:id', controller.show);
 
-//GET /stories/:id/edit: send html form for editing an existing story
+//GET /events/:id/edit: send html form for editing an existing event
 router.get('/:id/edit', controller.edit);
 
-//PUT (used to update the story) / stories/:id update the story identified by id
+//PUT (used to update the event) / events/:id update the event identified by id
 router.put('/:id', controller.update);
 
-//Delete /stories/:id: delete the story identified by id
+//Delete /events/:id: delete the event identified by id
 router.delete('/:id', controller.delete);
 
 

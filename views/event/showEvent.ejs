@@ -1,0 +1,31 @@
+<%- include('../partials/header.ejs')%>
+
+    <main>
+        <div class="event-main-margin" id="event-main-margin">
+            <h1><span class="fw-bold display-5"><%= event.category %></span></h1>
+            <br>
+            <img src="<%= event.image %>" alt="picture-of-host(s)" width="400" class="img-fluid"> 
+            
+            <br><br>
+            <div class="event-highlights">
+                <ul class="list-unstyled">
+                    <li><span class="fw-bold text-decoration-underline">Title:</span> <%= event.title %> <br> </li>
+                    <li><span class="fw-bold text-decoration-underline">Host:</span> <%= event.host %> <br> </li>
+                    <li><span class="fw-bold text-decoration-underline">Dates and Time:</span> From <%= event.startDateTime %> to <%= event.endDateTime %><br> </li>
+                    <li><span class="fw-bold text-decoration-underline">Location:</span> <%= event.location %> <br> </li>
+                    <li><span class="fw-bold text-decoration-underline">Details:</span> <%= event.details %></li> 
+                </ul>
+
+                <br>
+                <form>
+                    <!-- When uers click 'edit or delete' buttons, it sends a GET or POST request to this URL -->
+                    <button type="submit" formmethod="GET" formaction="/events/<%= event.id %>/edit" class="btn btn-success">Edit</button>
+                    <button type="submit" formmethod="POST" formaction="/events/<%= event.id %>?_method=DELETE" class="btn btn-danger">Delete</button>
+                </form>
+            </div>
+            <br>
+        </div>
+    </main>
+
+<%- include('../partials/footer.ejs') %>
+

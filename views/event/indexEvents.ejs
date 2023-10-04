@@ -1,23 +1,23 @@
-<!-- Landing page for stories -->
+<!-- Landing page for events -->
 
 <%- include('../partials/header.ejs') %>
 
     <main>
-        <% if(stories.length) { %>
+        <% if(events.length) { %>
             <h1 class="fw-bold display-5 d-flex justify-content-center">Please Select</h1><br> 
-            <% stories.forEach(story=> { %>
+            <% events.forEach(event=> { %>
                 <!-- <h1 class="fw-bold display-5 d-flex justify-content-center">Music Talk</h1><br> -->
 
                 <div class="container-fluid">
                     <div class="row">
                         <div class="col">
-                            <!-- <a class="navbar-brand d-flex justify-content-center" href="/stories/<%= story.id%>"><img src="<%= story.image %>" alt="musican-icon" width="400" class="img-fluid rounded"></a> -->
+                            <!-- <a class="navbar-brand d-flex justify-content-center" href="/events/<%= event.id%>"><img src="<%= event.image %>" alt="musican-icon" width="400" class="img-fluid rounded"></a> -->
 
-                            <a class="navbar-brand d-flex justify-content-center" href="/stories/<%= story.id %>">
+                            <a class="navbar-brand d-flex justify-content-center" href="/events/<%= event.id %>">
                                 <p class="text-center">
-                                    <%= story.category %> with <%= story.host %><br>
-                                    <!-- From: <%= story.startDateTime %><br>  -->
-                                    <!-- To: <%= story.endDateTime %><br> -->
+                                    <%= event.category %> with <%= event.host %><br>
+                                    <!-- From: <%= event.startDateTime %><br>  -->
+                                    <!-- To: <%= event.endDateTime %><br> -->
                                 </p>
                                 <br><br>
                             </a>
