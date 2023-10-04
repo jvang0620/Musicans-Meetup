@@ -3,13 +3,15 @@
 <%- include('../partials/header.ejs')%>
 
     <main>
-        <%if(stories.length != 0) { %>
+        <%if(stories.length) { %>
             <h1 class="fw-bold display-5 d-flex justify-content-center">Please Select</h1><br> 
-            <%stories.forEach(story=>{ %>
+            <%stories.forEach(story=> { %>
+                <!-- <h1 class="fw-bold display-5 d-flex justify-content-center">Music Talk</h1><br> -->
+
                 <div class="container-fluid">
                     <div class="row">
                         <div class="col">
-                            <a class="navbar-brand d-flex justify-content-center" href="/stories/<%= story.id%>"><img src="<%= story.image %>" alt="musican-icon" width="400" class="img-fluid rounded"></a>
+                            <!-- <a class="navbar-brand d-flex justify-content-center" href="/stories/<%= story.id%>"><img src="<%= story.image %>" alt="musican-icon" width="400" class="img-fluid rounded"></a> -->
 
                             <a class="navbar-brand d-flex justify-content-center" href="/stories/<%= story.id %>">
                                 <p class="text-center">
@@ -34,7 +36,7 @@
                     </div>
                 </div>
             </div>
-        <%} %>
+        <%}%>
     </main>
 
 <%- include('../partials/footer.ejs') %>

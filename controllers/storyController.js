@@ -27,9 +27,15 @@ exports.new = (req, res) => {
 exports.create = (req, res) => {
     // res.send('Created a new story');
     // console.log(req.body); //for testing
+
     let story = req.body;
     model.save(story);
     res.redirect('/stories');
+
+    // let story = req.body;
+    // model.save(story);
+    // let id = req.params.id;
+    // res.redirect('/stories/' + id);
 };
 
 //For details
