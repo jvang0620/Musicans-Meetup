@@ -3,24 +3,22 @@
 <%- include('../partials/header.ejs') %>
 
     <main>
-        <% if(events.length) { %>
-            <h1 class="fw-bold display-5 d-flex justify-content-center">Please Select</h1><br> 
-            <% events.forEach(event=> { %>
-                <!-- <h1 class="fw-bold display-5 d-flex justify-content-center">Music Talk</h1><br> -->
-
+        <% if (Object.keys(getAllCategories).length != 0) { %>
+            <% Object.keys(getAllCategories).forEach(category => { %>
                 <div class="container-fluid">
                     <div class="row">
                         <div class="col">
-                            <!-- <a class="navbar-brand d-flex justify-content-center" href="/events/<%= event.id%>"><img src="<%= event.image %>" alt="musican-icon" width="400" class="img-fluid rounded"></a> -->
+                            <h4 class="fw-bold display-5 d-flex justify-content-center"><%= category %></h4>
+                            <% getAllCategories[category].forEach(event => { %>
+                                <!-- <a class="navbar-brand d-flex justify-content-center" href="/events/<%= event.id%>"><img src="<%= event.image %>" alt="musican-icon" width="400" class="img-fluid rounded"></a> -->
 
-                            <a class="navbar-brand d-flex justify-content-center" href="/events/<%= event.id %>">
-                                <p class="text-center">
-                                    <%= event.category %> with <%= event.host %><br>
-                                    <!-- From: <%= event.startDateTime %><br>  -->
-                                    <!-- To: <%= event.endDateTime %><br> -->
-                                </p>
-                                <br><br>
-                            </a>
+                                <a class="navbar-brand d-flex justify-content-center" href="/events/<%= event.id %>">
+                                    <p class="text-center">
+                                        With <%= event.host %><br>
+                                    </p>
+                                    <br><br><br>
+                                </a>
+                            <% }); %>
                         </div>                     
                     </div>
                 </div>

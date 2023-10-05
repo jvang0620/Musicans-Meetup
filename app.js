@@ -12,6 +12,8 @@ const morgan = require('morgan');
 const methodOverride = require('method-override'); //once stalled 'npm i method-override', require it
 const eventRoutes = require('./routes/eventRoutes'); //must import to be able to use
 
+//require fileUpload.js
+const {fileUpload} = require('./middleware/fileUpload');
 
 /****************
 * create app
@@ -60,6 +62,12 @@ app.get('/about', (req, res) => {
 app.get('/contact', (req, res) => {
     res.render('contact.ejs');
 });
+
+//For file upload
+// app.post('/', fileUpload, (req, res, next) => {
+//     let image =  "./images/" + req.file.filename;
+//     res.render('indexEvent.ejs', {image});
+// });
 
 
 //all prefix '/events' will be send to this router 'eventRoutes' to handle

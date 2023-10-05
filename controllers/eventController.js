@@ -9,58 +9,67 @@
 const model = require('../models/event');
 
 
-//anonymous function set to exports.index. Can be call later.
+/***********************************************************
+* Anonymous function set to exports.index. Can be call later.
+***********************************************************/
 exports.index = (req, res) => {
-    // res.send('send all events');
-    // res.send(model.find());
+    // res.send('send all events'); //uncomment for testing
+    // res.send(model.find()); //uncomment for testing
+
     let events = model.find();
-    // let allCategories = model.getAllCategories();
+    let getAllCategories = model.getAllCategories();
     
-    // res.render('./event/indexEvents.ejs', {events, allCategories});
-    res.render('./event/indexEvents.ejs', {events});
+    res.render('./event/indexEvents.ejs', {events, getAllCategories});
 };
 
-//used to send new form
+
+/**********************
+* Used to send new form
+***********************/
 exports.new = (req, res) => {
     //res.send('send the new form');
     res.render('./event/newEventForm.ejs');
 };
 
-//creation of the new events. Create new object in array
+
+/*******************************************************
+* Creation of the new events. Create new object in array
+********************************************************/
 exports.create = (req, res) => {
-    // res.send('Created a new event');
-    // console.log(req.body); //for testing
+    // res.send('Created a new event'); //uncomment for testing
+    // console.log(req.body); //uncomment for testing
 
     let event = req.body;
     model.save(event);
     res.redirect('/events');
-
-    // let event = req.body;
-    // model.save(event);
-    // let id = req.params.id;
-    // res.redirect('/events/' + id);
 };
 
-//For details
+
+/*************************
+* Show details of an event 
+**************************/
 exports.show = (req, res, next) => {
     let id = req.params.id;
     let event = model.findById(id);
-    // res.send('send event with id ' + req.params.id);
-    // res.send(event); //For testing
-    // res.render('./event/show', {event});
+    // res.send('send event with id ' + req.params.id); //uncomment for testing
+    // res.send(event); //For testing //uncomment for testing
+    // res.render('./event/show', {event}); //uncomment for testing
 
     // if event is not undefined
     if(event) {
         res.render('./event/showEvent.ejs', {event});
     } else {
-        //res.status(404).send('Cannot find event with id ' + id);
+        //res.status(404).send('Cannot find event with id ' + id); //uncomment for testing
         let err = new Error('Cannot find a event with id ' + id);
         err.status = 404;
         next(err);
     }
 };
 
-//for edit
+
+/**********************
+* For editing an event
+***********************/
 exports.edit = (req, res, next) => {
     
     let id = req.params.id;
@@ -71,7 +80,7 @@ exports.edit = (req, res, next) => {
         res.render('./event/editEvent.ejs', {event});
     } 
     else {
-        // res.status(404).send('Cannot find event with id ' + id);
+        // res.status(404).send('Cannot find event with id ' + id); //uncomment for testing
         let err = new Error('Cannot find a event with id ' + id);
         err.status = 404;
         next(err);
@@ -79,7 +88,10 @@ exports.edit = (req, res, next) => {
     // res.send('send event edit form');
 };
 
-//for update
+
+/**********************
+* For updating an event
+***********************/
 exports.update = (req, res, next) => {
     // res.send('update event with id ' + req.params.id);
     let event = req.body;
@@ -90,14 +102,17 @@ exports.update = (req, res, next) => {
         res.redirect('/events/' + id);
     }
     else {
-        // res.status(404).send('Cannot find event with id ' + id);
+        // res.status(404).send('Cannot find event with id ' + id); //uncomment for testing
         let err = new Error('Cannot find a event with id ' + id);
         err.status = 404;
         next(err);
     }
 };
 
-//for delete
+
+/**********************
+* For deleting an event
+***********************/
 exports.delete = (req, res, next) => {
     // res.send('delete event with id ' + req.params.id);
     let id = req.params.id;

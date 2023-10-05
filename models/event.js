@@ -45,8 +45,8 @@ const events = [
     host: 'Danny and Leyicet',
     details: 'Come join our Music Talk with Danny and Leyicet. Danny and Leyicet, who are happyily married, graudated from the University of North Carolina at Charlottle, with their Bachelors of Arts in Music Performace. Danny and Leyicet has been playing on the road for the last five years and now they are back to shared with everyone their music experiences.',
     location: 'Music Center Room 101, 2319 Wellesley Ave., Charlotte, NC 28207',
-    startDateTime: '2023-13-20T18:00',
-    endDateTime: '2023-13-20T18:00',
+    startDateTime: '2023-12-21T18:00',
+    endDateTime: '2023-12-21T19:00',
     image: ['../images/img-musicians/danny-and-wife.jpg']
 },
 {
@@ -56,8 +56,8 @@ const events = [
     host: 'Pat Barret',
     details: 'Come join our Music Talk with Pat Barret. Pat Barret, who are happyily married, graudated from the University of North Carolina at Charlottle, with their Bachelors of Arts in Music Performace. Pat Barret has been playing on the road for the last five years and now they are back to shared with everyone their music experiences.',
     location: 'Music Center Room 101, 2319 Wellesley Ave., Charlotte, NC 28207',
-    startDateTime: '2023-12-22T18:00',
-    endDateTime: '2023-12-22T18:00',
+    startDateTime: '2023-12-23T18:00',
+    endDateTime: '2023-12-23T18:00',
     image: ['../images/img-musicians/Pat-Barrett.jpg']
 },
 {
@@ -67,8 +67,8 @@ const events = [
     host: 'Elevation Worship',
     details: 'Come to Try Outs with Elevation Worship. Elevation Worship is the lead band at Elevation Church in Charlotte, North Carolina.',
     location: 'Music Center Room 105, 2319 Wellesley Ave., Charlotte, NC 28207',
-    startDateTime: '2023-12-23T18:00',
-    endDateTime: '2023-12-23T18:00',
+    startDateTime: '2023-12-24T18:00',
+    endDateTime: '2023-12-24T18:00',
     image: ['../images/img-musicians-tryouts/eleveation.png']
 },
 {
@@ -78,8 +78,8 @@ const events = [
     host: 'Casting Crowns',
     details: 'Come to Try Outs with Casting Crowns. Casting Crowns is the lead band at Casting Crowns Church in Charlotte, North Carolina.',
     location: 'Music Center Room 105, 2319 Wellesley Ave., Charlotte, NC 28207',
-    startDateTime: '2023-12-24T18:00',
-    endDateTime: '2023-12-24T18:00',
+    startDateTime: '2023-12-28T18:00',
+    endDateTime: '2023-12-28T18:00',
     image: ['../images/img-musicians-tryouts/casting_crowns.jpg']
 },
 {
@@ -97,38 +97,32 @@ const events = [
 
 
 /******************************************
-* function to find events in array (below)
+* function to find events in array
 *******************************************/
 //exports.find = () => events; //Can use this or the below code
 exports.find = function() {
     return events;
 }
 
-// exports.getAllCategories = function() {
-//     //create an arry that store all the unique categories (Unique is the key-word)
-//     const uniqueCategoryArray = [];
 
-//     //return events.find(event=>event.id === id);
+/******************************************
+* function to find unique arrays
+*******************************************/
+exports.getAllCategories = function() {
+    //create an arry that store all the unique categories (Unique is the key-word)
+    const uniqueEvents = {};
 
-//     //check to see, loop through every elemnt in array
-//     //events.forEach(event => event.category === 
-
-
-        
-//     // array.forEach((category) => {
-//     //     if!array.includes(category)) {
-//     //         uniqueCategoryArray.push(category);
-//     //     }
-//     // })
-
-//     //check category if exist
-//     //if exist do nothing
-//     //but if not, add category to the array
-
-//     //4 lines of codes
-
-// }
-
+    //check to see, loop through every element in array
+    events.forEach(event => {
+        //if category doesn't exist, set to empty
+        if (!uniqueEvents[event.category]) {
+            uniqueEvents[event.category] = [];
+        }
+        //otherwise, add category to uniqueEvents arrray
+        uniqueEvents[event.category].push(event);
+    });
+    return uniqueEvents;
+}
 
 
 /*************************************************
