@@ -121,6 +121,9 @@ exports.getAllCategories = function() {
         //otherwise, add category to uniqueEvents arrray
         uniqueEvents[event.category].push(event);
     });
+    //test
+    // console.log(uniqueEvents);
+    
     return uniqueEvents;
 }
 
@@ -140,6 +143,7 @@ exports.findById = function(id) {
 ****************************************/
 exports.save = function(event) {
     event.id = uuidv4();
+    console.log(event);
     events.push(event);
 }
 
@@ -147,20 +151,20 @@ exports.save = function(event) {
 /***************************************
 * Take new event object and get id
 ****************************************/
-exports.updateById = function(id, newEvent) {
+exports.updateById = function(id, updatedEvent) {
     let event = events.find(event=>event.id === id);
 
     //if event exist
     if(event) {
         //we update
-        event.category = newEvent.category; 
-        event.title = newEvent.title;
-        event.host = newEvent.host;
-        event.details = newEvent.details;
-        event.location = newEvent.location;
-        event.startDateTime = newEvent.startDateTime; 
-        event.endDateTime = newEvent.endDateTime; 
-        event.image = newEvent.image; //might have to fix in the future
+        event.category = updatedEvent.category; 
+        event.title = updatedEvent.title;
+        event.host = updatedEvent.host;
+        event.details = updatedEvent.details;
+        event.location = updatedEvent.location;
+        event.startDateTime = updatedEvent.startDateTime; 
+        event.endDateTime = updatedEvent.endDateTime; 
+        event.image = updatedEvent.image; //might have to fix in the future
         return true;
     }
     else {

@@ -22,7 +22,6 @@ exports.index = (req, res) => {
     res.render('./event/indexEvents.ejs', {events, getAllCategories});
 };
 
-
 /**********************
 * Used to send new form
 ***********************/
@@ -77,7 +76,7 @@ exports.edit = (req, res, next) => {
 
     //if event is not undefined and it exists
     if(event) {
-        res.render('./event/editEvent.ejs', {event});
+        res.render('./event/editEvent.ejs', {event}); 
     } 
     else {
         // res.status(404).send('Cannot find event with id ' + id); //uncomment for testing

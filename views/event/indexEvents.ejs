@@ -3,7 +3,7 @@
 <%- include('../partials/header.ejs') %>
 
     <main>
-        <% if (Object.keys(getAllCategories).length != 0) { %>
+        <% if (Object.keys(getAllCategories).length) { %>
             <% Object.keys(getAllCategories).forEach(category => { %>
                 <div class="container-fluid">
                     <div class="row">

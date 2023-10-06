@@ -11,6 +11,7 @@ const express = require('express');
 const morgan = require('morgan');
 const methodOverride = require('method-override'); //once stalled 'npm i method-override', require it
 const eventRoutes = require('./routes/eventRoutes'); //must import to be able to use
+const mainRoutes = require('./routes/mainRoutes'); //import to use routes from mainRoutes
 
 //require fileUpload.js
 const {fileUpload} = require('./middleware/fileUpload');
@@ -53,15 +54,13 @@ app.get('/', (req, res) => {
     res.render('index.ejs'); // when we set EJS to our view engine, express knows all our view templetes are stored in the view folder
 });
 
-//route to about.ejs
-app.get('/about', (req, res) => {
-    res.render('about.ejs');
-});
+//all prefix '/events' will be send to this router 'eventRoutes' to handle
+app.use('/events', eventRoutes);
 
-//route to contact.ejs
-app.get('/contact', (req, res) => {
-    res.render('contact.ejs');
-});
+//routes to contact and about
+app.use('/', mainRoutes);
+
+
 
 //For file upload
 // app.post('/', fileUpload, (req, res, next) => {
@@ -70,8 +69,6 @@ app.get('/contact', (req, res) => {
 // });
 
 
-//all prefix '/events' will be send to this router 'eventRoutes' to handle
-app.use('/events', eventRoutes);
 
 
 /***********************************************
