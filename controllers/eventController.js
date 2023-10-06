@@ -105,6 +105,11 @@ exports.update = (req, res, next) => {
     let event = req.body;
     let id = req.params.id;
 
+    //if req.file exist
+    if(req.file) {
+        event.image = '/images/img-upload/' + req.file.filename;
+    }
+
     //if true
     if (model.updateById(id, event)) {
         res.redirect('/events/' + id);

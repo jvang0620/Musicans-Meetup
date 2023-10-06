@@ -25,7 +25,7 @@ const router = express.Router();
 router.get('/', controller.index);
 
 //GET /events/new: send HTML form for creating a new event
-router.get('/new', fileUpload, controller.new);
+router.get('/new', controller.new);
 
 //Post /events: creat a new event
 router.post('/', fileUpload, controller.create);
@@ -37,7 +37,7 @@ router.get('/:id', controller.show);
 router.get('/:id/edit', controller.edit);
 
 //PUT (used to update the event) / events/:id update the event identified by id
-router.put('/:id', controller.update);
+router.put('/:id', fileUpload, controller.update);
 
 //Delete /events/:id: delete the event identified by id
 router.delete('/:id', controller.delete);

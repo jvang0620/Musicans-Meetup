@@ -121,8 +121,6 @@ exports.getAllCategories = function() {
         //otherwise, add category to uniqueEvents arrray
         uniqueEvents[event.category].push(event);
     });
-    //test
-    // console.log(uniqueEvents);
     
     return uniqueEvents;
 }
@@ -143,7 +141,6 @@ exports.findById = function(id) {
 ****************************************/
 exports.save = function(event) {
     event.id = uuidv4();
-    // console.log(event); //for testing
     events.push(event);
 }
 
