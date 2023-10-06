@@ -39,6 +39,15 @@ exports.create = (req, res) => {
     // console.log(req.body); //uncomment for testing
 
     let event = req.body;
+
+    //Uncomment for testing
+    // console.log(req.file);
+    // console.log("File name:\n" + req.file.originalname) 
+    event.image = '/images/img-upload/' + req.file.filename;
+
+    //Uncomment for testing
+    // console.log(event);
+
     model.save(event);
     res.redirect('/events');
 };

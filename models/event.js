@@ -143,7 +143,7 @@ exports.findById = function(id) {
 ****************************************/
 exports.save = function(event) {
     event.id = uuidv4();
-    console.log(event);
+    // console.log(event); //for testing
     events.push(event);
 }
 
@@ -164,7 +164,12 @@ exports.updateById = function(id, updatedEvent) {
         event.location = updatedEvent.location;
         event.startDateTime = updatedEvent.startDateTime; 
         event.endDateTime = updatedEvent.endDateTime; 
-        event.image = updatedEvent.image; //might have to fix in the future
+        
+        //if there is a new image, update image
+        if (updatedEvent.image) {
+            event.image = updatedEvent.image;
+        }
+        
         return true;
     }
     else {

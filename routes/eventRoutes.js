@@ -8,6 +8,9 @@ const express = require('express');
 //In order to use eventOntroller.js, we must import it
 const controller = require('../controllers/eventController');
 
+//require fileUpload.js
+const {fileUpload} = require('../middleware/fileUpload'); //import to use middleware
+
 //router object
 const router = express.Router();
 
@@ -22,10 +25,10 @@ const router = express.Router();
 router.get('/', controller.index);
 
 //GET /events/new: send HTML form for creating a new event
-router.get('/new', controller.new);
+router.get('/new', fileUpload, controller.new);
 
 //Post /events: creat a new event
-router.post('/', controller.create);
+router.post('/', fileUpload, controller.create);
 
 //GET /events/:id send details of event indetified by id
 router.get('/:id', controller.show);

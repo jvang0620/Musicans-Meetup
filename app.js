@@ -13,8 +13,6 @@ const methodOverride = require('method-override'); //once stalled 'npm i method-
 const eventRoutes = require('./routes/eventRoutes'); //must import to be able to use
 const mainRoutes = require('./routes/mainRoutes'); //import to use routes from mainRoutes
 
-//require fileUpload.js
-const {fileUpload} = require('./middleware/fileUpload');
 
 /****************
 * create app
@@ -59,15 +57,6 @@ app.use('/events', eventRoutes);
 
 //routes to contact and about
 app.use('/', mainRoutes);
-
-
-
-//For file upload
-// app.post('/', fileUpload, (req, res, next) => {
-//     let image =  "./images/" + req.file.filename;
-//     res.render('indexEvent.ejs', {image});
-// });
-
 
 
 

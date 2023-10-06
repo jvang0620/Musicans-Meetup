@@ -2,7 +2,7 @@
 
     <main>
         <!-- include later: enctype="multipart/form-data" -->
-        <form class="form-margin" action="/events" method="POST"> 
+        <form class="form-margin" action="/events" method="POST" enctype="multipart/form-data"> 
             
             <h1 class="mb-3 d-flex justify-content-center">New Event</h1>
             <div class="mb-3">
@@ -52,7 +52,7 @@
             <!-- https://getbootstrap.com/docs/5.0/forms/form-control/ -->
             <div class="mb-3">
                 <label for="image" class="form-label fw-bold">Upload Image</label>
-                <input class="form-control image-upload" type="file" id="image" name="image" accept=".png,.jpg,.jpeg,.gif" aria-describedby="image" required> <!--Can add 'multiple' attribute if needed later-->
+                <input class="form-control image-upload" type="file" id="image" name="image"  aria-describedby="image" required> <!--Can add 'multiple' attribute if needed later-->
             </div>
             
             <!-- https://getbootstrap.com/docs/5.0/components/buttons/ -->

@@ -3,7 +3,7 @@ const multer  = require('multer');
 
 const storage = multer.diskStorage({ //destination function store at certain location
     destination: (req, file, cb) => {
-      cb(null, './public/images/img-upLoad')
+      cb(null, './public/images/img-upload')
     },
     filename: (req, file, cb) => { //filename function updates the file name
       //don't want to have any name collision/conflicts so we generate this unique suffix and attact to file name
