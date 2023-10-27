@@ -26,13 +26,13 @@ const app = express();
 *****************/
 let port = 3000;
 let host = 'localhost';
-let url = 'mongodb+srv://jv2710:12345@cluster0.gwzulku.mongodb.net/nbda-project3?retryWrites=true&w=majority'; /* I may need to fix this later */
+let MongoURL = 'mongodb+srv://jv2710:12345@cluster0.gwzulku.mongodb.net/nbda-project3?retryWrites=true&w=majority'; 
 app.set('view engine', 'ejs'); 
 
 /*************************
 * Connect to mongoDB Atlas
 **************************/
-mongoose.connect(url)
+mongoose.connect(MongoURL)
 .then(() => {
     //if successful, start the server
     app.listen(port, host, () => { 
