@@ -12,6 +12,7 @@ const morgan = require('morgan');
 const methodOverride = require('method-override'); //once stalled 'npm i method-override', require it
 const eventRoutes = require('./routes/eventRoutes'); //must import to be able to use
 const mainRoutes = require('./routes/mainRoutes'); //import to use routes from mainRoutes
+const mongoose = require('mongoose'); //require for mongoDB to connect to database
 
 
 /****************
@@ -25,7 +26,20 @@ const app = express();
 *****************/
 let port = 3000;
 let host = 'localhost';
+let url = 'mongodb+srv://jv2710:12345@cluster0.gwzulku.mongodb.net/nbda-project3?retryWrites=true&w=majority'; /* I may need to fix this later */
 app.set('view engine', 'ejs'); 
+
+/*************************
+* Connect to mongoDB Atlas
+**************************/
+mongoose.connect(url)
+.then(() => {
+    //if successful, start the server
+    app.listen(port, host, () => { 
+        console.log('Server is running on port', port);
+    });
+})
+.catch(err => console.log(err.message));
 
 
 /******************
@@ -83,13 +97,4 @@ app.use((err, req, res, next) => {
 
     res.status(err.status);
     res.render('error', {error: err});
-});
-
-
-/**********************************************
- * start the server
-***********************************************/
-//let it listen at this particular port
-app.listen(port, host, () => { 
-    console.log('Server is running on port', port);
 });
