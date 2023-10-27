@@ -11,7 +11,15 @@
                 <ul class="list-unstyled">
                     <li><span class="fw-bold text-decoration-underline">Title:</span> <%= event.title %> <br> </li>
                     <li><span class="fw-bold text-decoration-underline">Host:</span> <%= event.host %> <br> </li>
-                    <li><span class="fw-bold text-decoration-underline">Dates and Time:</span> From <%= event.startDateTime %> to <%= event.endDateTime %><br> </li>
+                    <li><span class="fw-bold text-decoration-underline">Dates and Time:</span>
+                        <!-- Convert Data object to a string, representing data/time -->
+                        <%= event.startDateTime.toLocaleString(undefined, { weekday: 'short', year: 'numeric', 
+                        month: 'short', day: 'numeric', hour: 'numeric', minute: 'numeric', hour12: true }) %>
+                        -
+                        <%= event.endDateTime.toLocaleString(undefined, { weekday: 'short', year: 'numeric', 
+                        month: 'short', day: 'numeric', hour: 'numeric', minute: 'numeric', hour12: true }) %>
+                        <br>
+                    </li>
                     <li><span class="fw-bold text-decoration-underline">Location:</span> <%= event.location %> <br> </li>
                     <li><span class="fw-bold text-decoration-underline">Details:</span> <%= event.details %></li> 
                 </ul>
