@@ -71,15 +71,15 @@
             <div class="mb-3">
                 <label for="startDateTime" class="form-label fw-bold">Start Date/Time</label>
 
-                <!--convert time to string and then extract first 16 characters, which represent the date/time in a format compatible with 'datetime/local' -->
+                <!--convert event time to string and then extract first 16 characters, which represent the date/time in a format compatible with 'datetime/local' -->
                 <% const prefilledStartDateTime = event.startDateTime.toISOString().slice(0, 16); %>
                 <input type="datetime-local" class="form-control" id="startDateTime" name="startDateTime" aria-describedby="startDateTime" value="<%= prefilledStartDateTime %>" required>
             </div>
 
             <div class="mb-3">
                 <label for="endDateTime" class="form-label fw-bold">End Date/Time</label>
-                
-                <!--convert time to string and then extract first 16 characters, which represent the date/time in a format compatible with 'datetime/local' -->
+
+                <!--convert event time to string and then extract first 16 characters, which represent the date/time in a format compatible with 'datetime/local' -->
                 <% const prefilledEndDateTime = event.endDateTime.toISOString().slice(0, 16); %>
                 <input type="datetime-local" class="form-control" id="endDateTime" name="endDateTime" aria-describedby="endDateTime" value="<%= prefilledEndDateTime %>" required>
             </div>
