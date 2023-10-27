@@ -5,7 +5,7 @@ const Schema = mongoose.Schema;
 const eventSchema = new Schema({
     title: {type: String, required: [true, 'Title is required']},
     category: {type: String, required: [true, 'Category is required']},
-    host: {type: String, required: [true, 'Host is required']}, //may need to change 'String' to Schema (e.g Schema.Types.ObjectID)
+    host: {type: String, required: [true, 'Host is required']},
     details: {type: String, required: [true, 'Details is required'],
         minLength: [10, 'Details should have at least 10 characters']},
     location: {type: String, required: [true, 'Location is required']},

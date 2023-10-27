@@ -2,6 +2,7 @@
 * This controller module consists of the call back functions from the route module
 **********************************************************************************/
 
+
 //require: import module event
 const model = require('../models/event');
 
