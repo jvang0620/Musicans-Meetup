@@ -77,7 +77,6 @@ exports.show = (req, res, next) => {
     if(!id.match(/^[0-9a-fA-F]{24}$/)) { 
         let err = new Error('Invalid event id');
         err.status = 400;
-
         return next(err);
     }
 
@@ -101,20 +100,29 @@ exports.show = (req, res, next) => {
 * For editing an event
 ***********************/
 exports.edit = (req, res, next) => {
-    
     let id = req.params.id;
-    let event = model.findById(id);
 
-    //if event is not undefined and it exists
-    if(event) {
-        res.render('./event/editEvent.ejs', {event}); 
-    } 
-    else {
-        // res.status(404).send('Cannot find event with id ' + id); //uncomment for testing
-        let err = new Error('Cannot find a event with id ' + id);
-        err.status = 404;
-        next(err);
+    //check if ID matches pattern (only contain 0-9, lowercase/uppercase a through f, and has to be 24 digits)
+    if(!id.match(/^[0-9a-fA-F]{24}$/)) { 
+        let err = new Error('Invalid event id');
+        err.status = 400;
+        return next(err);
     }
+
+    model.findById(id)
+    .then(event => {
+
+        //if event is not undefined and it exists
+        if(event) {
+            res.render('./event/editEvent.ejs', {event}); 
+        } 
+        else {
+            let err = new Error('Cannot find a event with id ' + id);
+            err.status = 404;
+            next(err);
+        }
+    })
+    .catch(err => next(err));
 };
 
 
@@ -125,20 +133,33 @@ exports.update = (req, res, next) => {
     let event = req.body;
     let id = req.params.id;
 
+    //check if ID matches pattern (only contain 0-9, lowercase/uppercase a through f, and has to be 24 digits)
+    if(!id.match(/^[0-9a-fA-F]{24}$/)) { 
+        let err = new Error('Invalid event id');
+        err.status = 400;
+        return next(err);
+    }
+
     //if req.file exist
     if(req.file) {
         event.image = '/images/img-upload/' + req.file.filename;
     }
 
-    //if true
-    if (model.updateById(id, event)) {
-        res.redirect('/events/' + id);
-    }
-    else {
-        let err = new Error('Cannot find a event with id ' + id);
-        err.status = 404;
-        next(err);
-    }
+    model.findByIdAndUpdate(id, event, {useFindAndModify: false, runValidators: true}) //adding the {useFindAndModify: false} arugment will get ride of the DeprecationWarning
+    .then(event => {
+        if(event) {
+            res.redirect('/events/' + id);
+        } else {
+            let err = new Error('Cannot find a event with id ' + id);
+            err.status = 404;
+            next(err);
+        }
+    })
+    .catch(err => {
+        if(err.name === 'ValidationError')
+            err.status = 400;
+            next(err)
+    });
 };
 
 
