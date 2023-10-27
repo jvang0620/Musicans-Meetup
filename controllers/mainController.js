@@ -5,3 +5,7 @@ exports.about = (req, res)=>{
 exports.contact = (req, res)=>{
     res.render('./contact.ejs');
 };
+
+exports.index = (req, res) => { 
+    res.render('./index.ejs'); 
+};

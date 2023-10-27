@@ -44,18 +44,8 @@ app.use(morgan('tiny'));
 app.use(methodOverride('_method'));
 
 
-/********************************************
- * set up routes
-*********************************************/
-//handles get request at this path '/'.It will render the landing page for the client
-app.get('/', (req, res) => { 
-    res.render('index.ejs'); // when we set EJS to our view engine, express knows all our view templetes are stored in the view folder
-});
-
-//all prefix '/events' will be send to this router 'eventRoutes' to handle
+// Routes ************************
 app.use('/events', eventRoutes);
-
-//routes to contact and about.....
 app.use('/', mainRoutes);
 
 
