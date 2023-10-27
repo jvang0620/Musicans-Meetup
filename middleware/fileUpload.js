@@ -26,7 +26,7 @@ const fileFilter = (req, file, cb) => {
 //create multer object with storage/limits/fileFilter
 const upload = multer({ 
   storage: storage,
-  limits:{fileSize: 2*1024*1024},
+  limits:{fileSize: 9*1024*1024},
   fileFilter: fileFilter
 }).single('image'); //accept a single file with the name "image" (newEventForm.ejs uplaod image field input name)
 
