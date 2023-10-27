@@ -55,7 +55,7 @@ app.get('/', (req, res) => {
 //all prefix '/events' will be send to this router 'eventRoutes' to handle
 app.use('/events', eventRoutes);
 
-//routes to contact and about.
+//routes to contact and about...
 app.use('/', mainRoutes);
 
 
