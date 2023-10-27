@@ -26,12 +26,23 @@ exports.new = (req, res) => {
 /*******************************************************
 * Creation of the new events. Create new object in array
 ********************************************************/
-exports.create = (req, res) => {
+exports.create = (req, res, next) => {
 
-    let event = req.body;
+    let event = new model(req.body);//create a new event document
     event.image = '/images/img-upload/' + req.file.filename;
-    model.save(event);
-    res.redirect('/events');
+
+    //since save() method is an instance method. 
+    //Also, this is how we insert the doc to the database
+    event.save()
+    .then((event) => {
+        res.redirect('/events');
+    })
+    .catch(err => {
+        if(err.name === 'ValidationError' ) {
+            err.status = 400;
+        }
+        next(err);
+    });
 };
 
 
