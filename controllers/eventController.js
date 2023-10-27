@@ -10,10 +10,30 @@ const model = require('../models/event');
 * Anonymous function set to exports.index. Can be call later.
 ***********************************************************/
 exports.index = (req, res) => {
-    let events = model.find();
-    let getAllCategories = model.getAllCategories();
-    res.render('./event/indexEvents.ejs', {events, getAllCategories});
+    model.find()
+    .then(events => {
+        let uniqueEvents = getAllCategories(events);
+        res.render('./event/indexEvents.ejs', {events, getAllCategories: uniqueEvents});
+    })
+    .catch(err => next(err));
+    
 };
+
+//helper function for exports.index (above)
+function getAllCategories(events) {
+    const uniqueEvents = {};
+
+    events.forEach(event => {
+        if (!uniqueEvents[event.category]) {
+            uniqueEvents[event.category] = [];
+        }
+        uniqueEvents[event.category].push(event);
+    });
+
+    return uniqueEvents;
+}
+
+
 
 /**********************
 * Used to send new form
