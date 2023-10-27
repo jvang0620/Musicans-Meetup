@@ -102,7 +102,7 @@ exports.show = (req, res, next) => {
 exports.edit = (req, res, next) => {
     let id = req.params.id;
 
-    //check if ID matches pattern (only contain 0-9, lowercase/uppercase a through f, and has to be 24 digits)
+    //check if id a valid or not
     if(!id.match(/^[0-9a-fA-F]{24}$/)) { 
         let err = new Error('Invalid event id');
         err.status = 400;
@@ -133,7 +133,7 @@ exports.update = (req, res, next) => {
     let event = req.body;
     let id = req.params.id;
 
-    //check if ID matches pattern (only contain 0-9, lowercase/uppercase a through f, and has to be 24 digits)
+    //check if id a valid or not
     if(!id.match(/^[0-9a-fA-F]{24}$/)) { 
         let err = new Error('Invalid event id');
         err.status = 400;
@@ -169,14 +169,23 @@ exports.update = (req, res, next) => {
 exports.delete = (req, res, next) => {
     let id = req.params.id;
 
-    // //if true
-    if (model.deleteById(id)) {
-        res.redirect('/events');
+    //check if id a valid or not
+    if(!id.match(/^[0-9a-fA-F]{24}$/)) { 
+        let err = new Error('Invalid event id');
+        err.status = 400;
+        return next(err);
     }
-    else {
-        let err = new Error('Cannot find a event with id ' + id);
-        err.status = 404;
-        next(err);
-    }
+
+    model.findByIdAndDelete(id, {useFindAndModify: false})
+    .then(event => { //returns a event that is being deleted
+        if(event) { //if there is a event
+            res.redirect('/events');
+        } else {
+            let err = new Error('Cannot find a event with id ' + id);
+            err.status = 404;
+            next(err);
+        }
+    }) 
+    .catch(err => next(err));
 };
 
