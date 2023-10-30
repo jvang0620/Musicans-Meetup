@@ -9,11 +9,10 @@
 *****************/
 const express = require('express');
 const morgan = require('morgan');
-const methodOverride = require('method-override'); //once stalled 'npm i method-override', require it
-const eventRoutes = require('./routes/eventRoutes'); //must import to be able to use
-const mainRoutes = require('./routes/mainRoutes'); //import to use routes from mainRoutes
-const mongoose = require('mongoose'); //require for mongoDB to connect to database
-
+const methodOverride = require('method-override'); 
+const eventRoutes = require('./routes/eventRoutes'); 
+const mainRoutes = require('./routes/mainRoutes'); 
+const mongoose = require('mongoose'); 
 
 /****************
 * create app
@@ -45,16 +44,9 @@ mongoose.connect(MongoURL)
 /******************
  * mount middleware
 *******************/
-//using this middleware function tells express where to locate the static files
 app.use(express.static('public')); 
-
-//using this middleware function allow me to parse data in the request body (b/c we need to deal with post request). It parse URL encoded data that users attach in the post request. By using this, it will store all the data as name-value pairs in the request body field. 
 app.use(express.urlencoded({extended: true})); 
-
-//using this middleware function helps log all requests and responses in the terminal
 app.use(morgan('tiny')); 
-
-//whenever we recieve a request, even though in HTML form we send a post request, that will be updated by the value of '_method' query string in our url https://www.npmjs.com/package/method-override
 app.use(methodOverride('_method'));
 
 
@@ -63,25 +55,19 @@ app.use('/events', eventRoutes);
 app.use('/', mainRoutes);
 
 
-
 /***********************************************
 * Error Handlers Below (Instead of using express
-* error handler, we create our own)
+* error handler, we create our own).
+* Error handler that handles 404(Not Found error)
 ************************************************/
-//error handler that handles 404(Not Found error)
 app.use((req, res, next) => {
     let err = new Error('The server cannot locate ' + req.url);
     err.status = 404;
-
-    //call next default error handler with 'err' object
     next(err);
 });
 
 
 //Middleware error handler 
-//Whenever you use 'next', passing 'err' as an argument, it calls this error handler
-//This should be the last one in our stack, right above our 'listen function' and below
-//all route in application
 app.use((err, req, res, next) => {
 
     //allow programmer to see error but user can't see it
