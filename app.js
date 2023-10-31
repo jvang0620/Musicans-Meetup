@@ -7,6 +7,7 @@
 /****************
 * require modules
 *****************/
+require('dotenv').config();
 const express = require('express');
 const morgan = require('morgan');
 const methodOverride = require('method-override'); 
@@ -23,15 +24,18 @@ const app = express();
 /****************
  * configure app
 *****************/
-let port = 3000;
-let host = 'localhost';
-let MongoDBAtlas_URL = 'mongodb+srv://jv2710:12345@cluster0.gwzulku.mongodb.net/nbda-project3?retryWrites=true&w=majority'; 
+const port =  process.env.PORT || 3000;
+const host = process.env.HOST || 'localhost';
+const dataBase_user = process.env.USER;
+const dataBase_password = process.env.PASS;
+const project = process.env.PROJECT;
+let MongoDBAtlas_URL = `mongodb+srv://${dataBase_user}:${dataBase_password}@cluster0.gwzulku.mongodb.net/${project}?retryWrites=true&w=majority`; 
 app.set('view engine', 'ejs'); 
 
 /*************************
 * Connect to mongoDB Atlas
 **************************/
-mongoose.connect(MongoDBAtlas_URL)
+mongoose.connect(MongoDBAtlas_URL, { useNewUrlParser: true, useUnifiedTopology: true })
 .then(() => {
     //if successful, start the server
     app.listen(port, host, () => { 
