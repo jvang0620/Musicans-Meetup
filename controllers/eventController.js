@@ -4,14 +4,14 @@
 
 
 //require: import module event
-const model = require('../models/event');
+const Event = require('../models/event');
 
 
 /***********************************************************
 * Anonymous function set to exports.index. Can be call later.
 ***********************************************************/
 exports.index = (req, res) => {
-    model.find()
+    Event.find()
     .then(events => {
         let uniqueEvents = getAllCategories(events);
         res.render('./event/indexEvents.ejs', {events, getAllCategories: uniqueEvents});
@@ -50,7 +50,7 @@ exports.new = (req, res) => {
 exports.create = (req, res, next) => {
 
     //create a new event document
-    let event = new model(req.body);
+    let event = new Event(req.body);
 
     //check if req.file exist
     if (req.file) {
@@ -92,7 +92,7 @@ exports.show = (req, res, next) => {
         return next(err);
     }
 
-    model.findById(id)
+    Event.findById(id)
     .then(event => {
         // if event is not undefined
         if(event) {
@@ -121,7 +121,7 @@ exports.edit = (req, res, next) => {
         return next(err);
     }
 
-    model.findById(id)
+    Event.findById(id)
     .then(event => {
 
         //if event is not undefined and it exists
@@ -157,7 +157,7 @@ exports.update = (req, res, next) => {
         event.image = '/images/img-upload/' + req.file.filename;
     }
 
-    model.findByIdAndUpdate(id, event, {useFindAndModify: false, runValidators: true}) //adding the {useFindAndModify: false} arugment will get ride of the DeprecationWarning
+    Event.findByIdAndUpdate(id, event, {useFindAndModify: false, runValidators: true}) //adding the {useFindAndModify: false} arugment will get ride of the DeprecationWarning
     .then(event => {
         if(event) {
             res.redirect('/events/' + id);
@@ -188,7 +188,7 @@ exports.delete = (req, res, next) => {
         return next(err);
     }
 
-    model.findByIdAndDelete(id, {useFindAndModify: false})
+    Event.findByIdAndDelete(id, {useFindAndModify: false})
     .then(event => { //returns a event that is being deleted
         if(event) { //if there is a event
             res.redirect('/events');
