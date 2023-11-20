@@ -152,3 +152,8 @@ body {
     min-height: 100vh;
 }
 
+/* Edit and Delete buttons in profile.ejs */
+.btn-action {
+    width: 70px;
+}
+

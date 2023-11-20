@@ -14,13 +14,11 @@
 
                 <!-- Edit form -->
                 <form method="GET" action="/events/<%= event.id %>/edit" style="display: inline-block;">
-                    <button type="submit" class="btn btn-success">Edit</button>
+                    <button type="submit" class="btn btn-success btn-action">Edit</button>
                 </form>
 
                 <!-- Delete button with modal confirmation -->
-                <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#deleteModal<%= event.id %>">
-                    Delete
-                </button>
+                <button type="button" class="btn btn-danger btn-action" data-bs-toggle="modal" data-bs-target="#deleteModal<%= event.id %>">Delete</button>
 
                 <!-- Modal -->
                 <div class="modal fade" id="deleteModal<%= event.id %>" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true">
@@ -36,7 +34,7 @@
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
                                 <form method="POST" action="/events/<%= event.id %>?_method=DELETE" style="display: inline-block;">
-                                    <button type="submit" class="btn btn-danger">Delete</button>
+                                    <button type="submit" class="btn btn-danger">YES! DELETE!</button>
                                 </form>
                             </div>
                         </div>
