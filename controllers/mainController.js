@@ -6,6 +6,10 @@ exports.contact = (req, res)=>{
     res.render('./contact.ejs');
 };
 
+// exports.index = (req, res) => { 
+//     res.render('./index.ejs'); 
+// };
+
 exports.index = (req, res) => { 
-    res.render('./index.ejs'); 
+    res.render('./index.ejs', { user: res.locals.user}); 
 };

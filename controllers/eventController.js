@@ -4,20 +4,27 @@
 
 
 //require: import module event
+const model = require('../models/user');
 const Event = require('../models/event');
 
 
 /***********************************************************
 * Anonymous function set to exports.index. Can be call later.
 ***********************************************************/
-exports.index = (req, res) => {
+exports.index = (req, res, next) => {
     Event.find()
     .then(events => {
         let uniqueEvents = getAllCategories(events);
-        res.render('./event/indexEvents.ejs', {events, getAllCategories: uniqueEvents});
+
+        // Fetch the user details using the user ID
+        model.findById(req.session.user)
+            .then(user => {
+                // Pass both events, categories, and user objects to the view
+                res.render('./event/indexEvents.ejs', { events, getAllCategories: uniqueEvents, user });
+            })
+            .catch(err => next(err));
     })
     .catch(err => next(err));
-    
 };
 
 //helper function for exports.index (above)
@@ -40,7 +47,13 @@ function getAllCategories(events) {
 * Used to send new form
 ***********************/
 exports.new = (req, res) => {
-    res.render('./event/newEventForm.ejs');
+    // Fetch the user details using the user ID
+    model.findById(req.session.user)
+        .then(user => {
+            // Render the newEventForm.ejs view and pass the user object
+            res.render('./event/newEventForm.ejs', { user });
+        })
+        .catch(err => next(err));
 };
 
 
@@ -51,16 +64,18 @@ exports.create = (req, res, next) => {
 
     //create a new event document
     let event = new Event(req.body);
+    event.host = req.session.user; //store the id of current user in the host field
 
     //check if req.file exist
     if (req.file) {
         event.image = '/images/img-upload/' + req.file.filename;
-
+        
         //since save() method is an instance method. 
         //Also, this is how we insert the doc to the database
         event.save()
         .then((event) => {
-            res.redirect('/events');
+            req.flash('success', 'Event was created successfully');
+            res.redirect('/events'); //return to events page
         })
         .catch(err => {
             if(err.name === 'ValidationError' ) {
@@ -84,25 +99,29 @@ exports.create = (req, res, next) => {
 exports.show = (req, res, next) => {
     let id = req.params.id;
 
-    //an objectID is a 24-bit Hex String
-    //id has to follow this pattern. It can only contain 0-9, lowercase/uppercase a through f, and has to be 24 digits. 
-    if(!id.match(/^[0-9a-fA-F]{24}$/)) { 
-        let err = new Error('Invalid event id');
-        err.status = 400;
-        return next(err);
-    }
-
-    Event.findById(id)
+    Event.findById(id).populate('host', '_id firstName lastName')
     .then(event => {
-        // if event is not undefined
-        if(event) {
-            res.render('./event/showEvent.ejs', {event});
-        } 
-        else {
-            let err = new Error('Cannot find a event with id ' + id);
-            err.status = 404;
-            next(err);
-        }
+        // Fetch the user details using the user ID
+        model.findById(req.session.user)
+            .then(user => {
+
+                //check if an event and a user exist. If true, pass both event & user obejects to the view template
+                if(event && user) {
+                    res.render('./event/showEvent.ejs', {event, user});
+                } 
+
+                //implement this condition so guest can view event listing
+                //if event exist
+                else if (event) {
+                    res.render('./event/showEvent.ejs', {event});
+                }
+                else {
+                    let err = new Error(' with id ' + id);
+                    err.status = 404;
+                    next(err);
+                }
+            })
+            .catch(err => next(err));
     })
     .catch(err => next(err));
 };
@@ -114,25 +133,23 @@ exports.show = (req, res, next) => {
 exports.edit = (req, res, next) => {
     let id = req.params.id;
 
-    //check if id a valid or not
-    if(!id.match(/^[0-9a-fA-F]{24}$/)) { 
-        let err = new Error('Invalid event id');
-        err.status = 400;
-        return next(err);
-    }
-
     Event.findById(id)
     .then(event => {
 
-        //if event is not undefined and it exists
-        if(event) {
-            res.render('./event/editEvent.ejs', {event}); 
-        } 
-        else {
-            let err = new Error('Cannot find a event with id ' + id);
-            err.status = 404;
-            next(err);
-        }
+        // Fetch the user details using the user ID
+        model.findById(req.session.user)
+            .then(user => {
+                // Pass both event and user objects to the view
+                if(event && user) {
+                    res.render('./event/editEvent.ejs', {event, user}); 
+                } 
+                else {
+                    let err = new Error('Cannot find a event with id ' + id);
+                    err.status = 404;
+                    next(err);
+                }
+            })
+            .catch(err => next(err));
     })
     .catch(err => next(err));
 };
@@ -145,13 +162,6 @@ exports.update = (req, res, next) => {
     let event = req.body;
     let id = req.params.id;
 
-    //check if id a valid or not
-    if(!id.match(/^[0-9a-fA-F]{24}$/)) { 
-        let err = new Error('Invalid event id');
-        err.status = 400;
-        return next(err);
-    }
-
     //if req.file exist
     if(req.file) {
         event.image = '/images/img-upload/' + req.file.filename;
@@ -160,6 +170,7 @@ exports.update = (req, res, next) => {
     Event.findByIdAndUpdate(id, event, {useFindAndModify: false, runValidators: true}) //adding the {useFindAndModify: false} arugment will get ride of the DeprecationWarning
     .then(event => {
         if(event) {
+            req.flash('success', 'Event Was Updated Successfully!');
             res.redirect('/events/' + id);
         } else {
             let err = new Error('Cannot find a event with id ' + id);
@@ -181,16 +192,10 @@ exports.update = (req, res, next) => {
 exports.delete = (req, res, next) => {
     let id = req.params.id;
 
-    //check if id a valid or not
-    if(!id.match(/^[0-9a-fA-F]{24}$/)) { 
-        let err = new Error('Invalid event id');
-        err.status = 400;
-        return next(err);
-    }
-
     Event.findByIdAndDelete(id, {useFindAndModify: false})
     .then(event => { //returns a event that is being deleted
         if(event) { //if there is a event
+            req.flash('success', 'Event Was Deleted Successfully!');
             res.redirect('/events');
         } else {
             let err = new Error('Cannot find a event with id ' + id);

@@ -13,7 +13,12 @@ const morgan = require('morgan');
 const methodOverride = require('method-override'); 
 const eventRoutes = require('./routes/eventRoutes'); 
 const mainRoutes = require('./routes/mainRoutes'); 
+const userRoutes = require('./routes/userRoutes');
 const mongoose = require('mongoose'); 
+const session = require('express-session');
+const MongoStore = require('connect-mongo');
+const flash = require('connect-flash');
+const User = require('./models/user');
 
 /****************
 * create app
@@ -48,6 +53,80 @@ mongoose.connect(MongoDBAtlas_URL, { useNewUrlParser: true, useUnifiedTopology: 
 /******************
  * mount middleware
 *******************/
+app.use(
+    session({
+        secret: "ajfeirf90aeu9eroejfoefj",
+        resave: false,
+        saveUninitialized: false,
+        store: new MongoStore({mongoUrl: MongoDBAtlas_URL}),
+        cookie: {maxAge: 60*60*1000}
+        })
+);
+app.use(flash());
+
+// app.use((req, res, next) => {
+//     //console.log(req.session);
+
+//     //storing currect user's session into res.locals user variable
+//     //If user session doesn't exist, then res.locals user variable is set to 'null'
+//     res.locals.user = req.session.user||null; //added aditional info to res.locals
+
+//     res.locals.username = req.session.username||null;
+//     res.locals.firstName = req.session.firstName||null;
+
+//     res.locals.errorMessages = req.flash('error');
+//     res.locals.successMessages = req.flash('success');
+
+//     //test
+//     //console.log(res.locals.user);
+
+//     next();
+// });
+
+app.use((req, res, next) => {
+
+    //if user's session exist
+    if (req.session.user) {
+
+        // Fetch the user details using the user ID
+        User.findById(req.session.user)
+
+            // function is used to execute the query
+            .exec() 
+
+            // Promises syntax. When the query is successfully executed, the 'then' block is executed
+            .then((user) => {
+
+                //storing currect user's session into res.locals user variable
+                //If user session doesn't exist, then res.locals user variable is set to 'null'
+                res.locals.user = user || null;
+
+                //If user exists, it sets res.locals.username to user.username. Otherwise, set to null
+                res.locals.username = user ? user.username : null;
+
+                //If user exists, it sets res.locals.firstName to user.firstName. Otherwise, set to null
+                res.locals.firstName = user ? user.firstName : null;
+
+                //set the locals error/success messages to flash's error/success messages
+                res.locals.errorMessages = req.flash('error');
+                res.locals.successMessages = req.flash('success');
+
+                next();
+            })
+            .catch((err) => {
+                console.log(err);
+                next();
+            });
+    } else {
+        res.locals.user = null;
+        res.locals.username = null;
+        res.locals.firstName = null;
+        res.locals.errorMessages = req.flash('error');
+        res.locals.successMessages = req.flash('success');
+        next();
+    }
+});
+
 app.use(express.static('public')); 
 app.use(express.urlencoded({extended: true})); 
 app.use(morgan('tiny')); 
@@ -57,6 +136,7 @@ app.use(methodOverride('_method'));
 // Routes ************************
 app.use('/events', eventRoutes);
 app.use('/', mainRoutes);
+app.use('/users', userRoutes);
 
 
 /***********************************************

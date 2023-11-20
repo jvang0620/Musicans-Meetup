@@ -33,15 +33,40 @@
 
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+
+                        <!-- if there is NO user -->
+                        <!-- 'user' refers to the res.locals.user in app.js (line 40-52) -->
+                        <% if(!user) { %>
+                        
+                        <!-- display Sign-Up & Login tabs -->
+                        <li class="nav-item">
+                            <a class="nav-link" href="/users/new">Sign Up</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/users/login">Login</a>
+                        </li>
+
+                        <!-- if user exist -->
+                        <% } else { %>                
+
+                        <!-- display Create-New-Event, Profile, Logout tabs -->
                         <li class="nav-item">
                             <a class="nav-link active" aria-current="page" href="/events/new">New Event</a>
                         </li>
+                            <% if(user && user.firstName && user.firstName.endsWith('s')) { %>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="/users/profile"><%= user.firstName %>' Profile</a>
+                                </li>
+                            <% } else { %>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="/users/profile"><%= user.firstName %>'s Profile</a>
+                                </li>
+                            <% } %>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Sign Up</a>
+                            <a class="nav-link" href="/users/logout">Logout</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Login</a>
-                        </li>
+                        <% } %>
+
                     </ul>
                 </div>
             </div>
@@ -54,3 +79,29 @@
             </ol>
         </nav>
     </header>
+
+    <!-- check if error messages exist  -->
+    <% if(errorMessages.length > 0) { %>
+        <!-- if so, print out messages with close (x) button -->
+        <div class="container">
+            <% errorMessages.forEach(message => { %>
+                <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                    <%= message %>
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+            <% }); %>
+        </div>
+    <% } %>
+
+    <!-- check if success messages exist -->
+    <% if(successMessages.length > 0) { %>
+        <!-- if so, print out messages with close (x) button -->
+        <div class="container">
+            <% successMessages.forEach(message => { %>
+                <div class="alert alert-success alert-dismissible fade show" role="alert">
+                    <%= message %>
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+            <% }); %>
+        </div>
+    <% } %>

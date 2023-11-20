@@ -9,14 +9,12 @@
                     <div class="row">
                         <div class="col">
                             <h4 class="fw-bold display-5 d-flex justify-content-center"><%= category %></h4>
-                            <% getAllCategories[category].forEach(event => { %>
-                                <!-- <a class="navbar-brand d-flex justify-content-center" href="/events/<%= event.id%>"><img src="<%= event.image %>" alt="musican-icon" width="400" class="img-fluid rounded"></a> -->
-                                                                
+                            <% getAllCategories[category].forEach(event => { %>      
+                                <a class="navbar-brand d-flex justify-content-center" href="/events/<%= event.id%>"><img src="<%= event.image %>" alt="musican-icon" width="350" class="img-fluid rounded"></a>
+
                                 <a class="navbar-brand d-flex justify-content-center" href="/events/<%= event.id %>">
-                                    <p class="text-center">
-                                        With <%= event.host %><br>
-                                    </p>
-                                    <br>
+                                <p class="text-center"> <%= event.title %> <br>  </p>
+                                <br>
                                 </a>
                             <% }); %>
                         </div>                     
@@ -35,5 +33,9 @@
             </div>
         <% } %>
     </main>
+
+    
+
+      
 
 <%- include('../partials/footer.ejs') %>

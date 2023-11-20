@@ -1,0 +1,53 @@
+<%- include('../partials/header.ejs')%>
+  
+<main>
+    <div class="index-main-margin" id="index-main-margin">
+        <h2>Welcome, <%=user.firstName%></h2>
+
+        <% if(events.length) { %>
+            <p>You have created the following events</p>
+            <% events.forEach(event => { %>
+                <a class="navbar-brand d-flex" href="/events/<%= event.id %>">
+                    <p class="text-center"> <%= event.title %>  </p> 
+                    <br>
+                </a>
+
+                <!-- Edit form -->
+                <form method="GET" action="/events/<%= event.id %>/edit" style="display: inline-block;">
+                    <button type="submit" class="btn btn-success">Edit</button>
+                </form>
+
+                <!-- Delete button with modal confirmation -->
+                <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#deleteModal<%= event.id %>">
+                    Delete
+                </button>
+
+                <!-- Modal -->
+                <div class="modal fade" id="deleteModal<%= event.id %>" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="deleteModalLabel">Confirm Deletion</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                Are you sure you want to delete this event?
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                                <form method="POST" action="/events/<%= event.id %>?_method=DELETE" style="display: inline-block;">
+                                    <button type="submit" class="btn btn-danger">Delete</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <br>
+            <% }); %>
+        <% } else { %>
+            <p>You have not created any events</p>
+        <% } %>
+    </div>
+</main>
+
+<%- include('../partials/footer.ejs') %>
