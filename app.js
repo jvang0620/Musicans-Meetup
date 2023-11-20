@@ -64,25 +64,6 @@ app.use(
 );
 app.use(flash());
 
-// app.use((req, res, next) => {
-//     //console.log(req.session);
-
-//     //storing currect user's session into res.locals user variable
-//     //If user session doesn't exist, then res.locals user variable is set to 'null'
-//     res.locals.user = req.session.user||null; //added aditional info to res.locals
-
-//     res.locals.username = req.session.username||null;
-//     res.locals.firstName = req.session.firstName||null;
-
-//     res.locals.errorMessages = req.flash('error');
-//     res.locals.successMessages = req.flash('success');
-
-//     //test
-//     //console.log(res.locals.user);
-
-//     next();
-// });
-
 app.use((req, res, next) => {
 
     //if user's session exist
