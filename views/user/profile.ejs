@@ -11,6 +11,7 @@
                     <thead>
                         <tr>
                             <th>Title</th>
+                            <th>Category</th>
                             <th>Action</th>
                         </tr>
                     </thead>
@@ -20,6 +21,11 @@
                                 <td>
                                     <a class="navbar-brand d-flex" href="/events/<%= event.id %>">
                                         <p class="text-center pt-3"><%= event.title %></p>
+                                    </a>
+                                </td>
+                                <td>
+                                    <a class="navbar-brand d-flex">
+                                        <p class="text-center pt-3"><%= event.category %></p>
                                     </a>
                                 </td>
                                 <td class="pt-3">
