@@ -157,6 +157,13 @@ body {
     width: 70px;
 }
 
+.table th, .table td {
+    white-space: nowrap; /* Prevent line breaks within table cells */
+    overflow: hidden;
+    text-overflow: ellipsis; /* Display ellipsis (...) for overflowed text */
+    min-width: 150px; /* Set a minimum width for the cells */
+}
+
 
 /* Style for table in the profile.ejs */
 .table-container {
