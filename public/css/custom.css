@@ -157,3 +157,41 @@ body {
     width: 70px;
 }
 
+
+/* Style for table in the profile.ejs */
+.table-container {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); 
+    border-radius: 10px;
+    overflow: hidden;
+    margin-top: 25px; 
+    background-color: #f8f9fa; /* Table's background color */
+    line-height: .8;
+}
+
+.table {
+    width: 100%;
+}
+
+.table-container a.navbar-brand p {
+    color: #000; /* Set the title text color to black */
+    
+}
+
+/* Responsive table styles */
+.table-responsive {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+}
+
+/* Media query that applies the contained styles only when the maximum width of the viewport is 767px or less */
+/* Targets smaller screens (e.g. mobie & tablet divices */
+@media (max-width: 767px) {
+    .table-responsive {
+        width: 100%;
+        margin-bottom: 15px;
+        overflow-y: hidden;
+        -ms-overflow-style: -ms-autohiding-scrollbar;
+        border: 1px solid #ddd;
+    }
+}
+
