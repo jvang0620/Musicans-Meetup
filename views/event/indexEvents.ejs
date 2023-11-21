@@ -2,40 +2,38 @@
 
 <%- include('../partials/header.ejs') %>
 
-    <main>
-        <% if (Object.keys(getAllCategories).length) { %>
-            <% Object.keys(getAllCategories).forEach(category => { %>
-                <div class="container-fluid">
-                    <div class="row">
-                        <div class="col">
-                            <h4 class="fw-bold display-5 d-flex justify-content-center"><%= category %></h4>
-                            <% getAllCategories[category].forEach(event => { %>      
-                                <a class="navbar-brand d-flex justify-content-center" href="/events/<%= event.id%>"><img src="<%= event.image %>" alt="musican-icon" width="350" class="img-fluid rounded"></a>
-
-                                <a class="navbar-brand d-flex justify-content-center" href="/events/<%= event.id %>">
-                                <p class="text-center"> <%= event.title %> <br>  </p>
-                                <br>
-                                </a>
-                            <% }); %>
-                        </div>                     
-                    </div>
-                </div>
-            <% }); %>
-        <% } else { %>
+<main>
+    <% if (Object.keys(getAllCategories).length) { %>
+        <% Object.keys(getAllCategories).forEach(category => { %>
             <div class="container-fluid">
-                <div class="row">
-                    <div class="col">
-                        <br><br><br><br><br><br><br><br><br><br><br><br><br>
-                        <h1 class="fw-bold display-5 d-flex justify-content-center">There are no events to display</h1>
-                        <br><br><br><br><br><br><br><br><br><br><br><br><br>
+                <h4 class="fw-bold display-6 d-flex justify-content-center text-decoration-underline"><%= category %></h4>
+
+                <div class="container my-5">
+                    <div class="row justify-content-center">
+                        <% getAllCategories[category].forEach(event => { %>
+                            <div class="col-md-4 mb-4">
+                
+                                <!-- display image & title of event -->
+                                <a class="navbar-brand d-flex flex-column align-items-center" href="/events/<%= event.id%>">
+                                    <img src="<%= event.image %>" alt="<%= event.title %> Image" width="350" class="img-fluid rounded image-object-fit-fixed-height"> 
+                                    <p class="text-center mt-2"><%= event.title %></p> 
+                                </a>
+                            </div>
+                        <% }); %>
                     </div>
                 </div>
             </div>
-        <% } %>
-    </main>
-
-    
-
-      
+        <% }); %>
+    <% } else { %>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col my-5">
+                    <!-- display message if no event exists -->
+                    <h1 class="fw-bold display-5 text-center">There are no events to display</h1>
+                </div>
+            </div>
+        </div>
+    <% } %>
+</main>
 
 <%- include('../partials/footer.ejs') %>

@@ -202,3 +202,10 @@ body {
     }
 }
 
+
+/* Custom CSS for images' fixed height with object-fit in the indexEvent.ejs */
+.image-object-fit-fixed-height {
+    object-fit: cover; /* Ensures the entire content is visible within the container, potentially leaving empty space if aspect ratios don't match. */
+    height: 250px; /* Height of image */
+}
+
