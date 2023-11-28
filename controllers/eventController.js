@@ -4,7 +4,7 @@
 
 
 //require: import module event
-const model = require('../models/user');
+const User = require('../models/user');
 const Event = require('../models/event');
 
 
@@ -17,7 +17,7 @@ exports.index = (req, res, next) => {
         let uniqueEvents = getAllCategories(events);
 
         // Fetch the user details using the user ID
-        model.findById(req.session.user)
+        User.findById(req.session.user)
             .then(user => {
                 // Pass both events, categories, and user objects to the view
                 res.render('./event/indexEvents.ejs', { events, getAllCategories: uniqueEvents, user });
@@ -48,7 +48,7 @@ function getAllCategories(events) {
 ***********************/
 exports.new = (req, res) => {
     // Fetch the user details using the user ID
-    model.findById(req.session.user)
+    User.findById(req.session.user)
         .then(user => {
             // Render the newEventForm.ejs view and pass the user object
             res.render('./event/newEventForm.ejs', { user });
@@ -102,7 +102,7 @@ exports.show = (req, res, next) => {
     Event.findById(id).populate('host', '_id firstName lastName')
     .then(event => {
         // Fetch the user details using the user ID
-        model.findById(req.session.user)
+        User.findById(req.session.user)
             .then(user => {
 
                 //check if an event and a user exist. If true, pass both event & user obejects to the view template
@@ -137,7 +137,7 @@ exports.edit = (req, res, next) => {
     .then(event => {
 
         // Fetch the user details using the user ID
-        model.findById(req.session.user)
+        User.findById(req.session.user)
             .then(user => {
                 // Pass both event and user objects to the view
                 if(event && user) {

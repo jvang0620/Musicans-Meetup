@@ -1,4 +1,4 @@
-const model = require('../models/user');
+const User = require('../models/user');
 const Event = require('../models/event');
 
 exports.new = (req, res)=>{
@@ -7,7 +7,7 @@ exports.new = (req, res)=>{
 
 exports.create = (req, res, next)=>{
 
-    let user = new model(req.body);
+    let user = new User(req.body);
     user.save()
     .then(user => {
         req.flash('success', 'Registration Succeeded!');
@@ -34,7 +34,7 @@ exports.login = (req, res, next)=>{
 
     let email = req.body.email;
     let password = req.body.password;
-    model.findOne({ email: email })
+    User.findOne({ email: email })
     .then(user => {
         if (!user) {
             req.flash('error', 'Wrong Email Address!');  
@@ -60,7 +60,7 @@ exports.login = (req, res, next)=>{
 
 exports.profile = (req, res, next)=>{
     let id = req.session.user;
-    Promise.all([model.findById(id), Event.find({host: id})])
+    Promise.all([User.findById(id), Event.find({host: id})])
     .then(results => {
         const [user, events] = results;
         res.render('./user/profile', {user, events});
