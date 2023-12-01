@@ -39,6 +39,9 @@ router.put('/:id', validateId, isLoggedIn, isHost, fileUpload, eventController.u
 //Delete /events/:id: delete the event identified by id
 router.delete('/:id', validateId, isLoggedIn, isHost,  eventController.delete);
 
+// POST /events/:id/rsvp: handle all RSVP submissions
+router.post('/:id/rsvp', isLoggedIn, validateId, eventController.rsvp);
+
 
 
 /***********************************************************

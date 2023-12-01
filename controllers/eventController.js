@@ -5,6 +5,7 @@
 
 //require: import module event
 const User = require('../models/user');
+const Rsvp = require('../models/rsvp');
 const Event = require('../models/event');
 
 
@@ -206,3 +207,41 @@ exports.delete = (req, res, next) => {
     .catch(err => next(err));
 };
 
+/*************************
+// Handle all RSVP submissions
+**************************/
+exports.rsvp = (req, res, next) => {
+
+    //what the user selcted (Yes, NO, Maybe) will be in the req.body.status and assignmed to 'buttonSelected'.
+    let buttonSelected = req.body.status;
+
+    Rsvp.findOne({event: req.params.id, user: req.session.user})
+    .then(rsvp => {
+        if(rsvp) {
+            //Uncomment to see what response is (for testing)
+            // console.log(buttonSelected);
+
+            Rsvp.findByIdAndUpdate(rsvp._id, {response: buttonSelected}, {useFindAndModify: false})
+            .then(result => {
+                // req.flash('success', `You have changed your RSVP from ${rsvp.status} to ${response}`);
+                req.flash('success', `You have changed your RSVP to ${buttonSelected}`);
+                res.redirect('/users/profile');
+            })
+            .catch(err => next(err));
+        } 
+        else {
+            rsvp = new Rsvp({
+                event: req.params.id,
+                user: req.session.user,
+                status: buttonSelected 
+            });
+            rsvp.save()
+            .then(result => {
+                req.flash('success', `You have RSVP with ${buttonSelected}`);
+                res.redirect('/users/profile');
+            })
+            .catch(err => next(err));
+        }
+    })
+    .catch(err => next(err));
+};

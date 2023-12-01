@@ -2,7 +2,6 @@
 
     <main>
         <div class="event-main-margin" id="event-main-margin">
-            <!-- <h1><span class="fw-bold"><%= event.category %>: <%= event.title %></span></h1> -->
             <h1><span class="fw-bold"><%= event.title %></span></h1>
             <br>
 
@@ -14,12 +13,6 @@
                 <button type="submit" name="status" value="MAYBE" class="btn btn-primary btn-sm btn-action">Maybe</button>
             </form>
 
-            <!-- Display total number of 'YES' responses -->
-            <p>Total 'YES' RSVPs: <%= event.rsvps.filter(rsvp => rsvp.status === 'YES').length %></p>
-
-            
-
-
             <br>
 
             <img src="<%= event.image %>" alt="picture-of-host(s)" width="400" class="img-fluid"> 
@@ -27,7 +20,6 @@
             <br><br>
             <div class="event-highlights">
                 <ul class="list-unstyled">
-                    <!-- <li><span class="fw-bold text-decoration-underline">Title:</span> <%= event.title %> <br> </li> -->
                     <li><span class="fw-bold text-decoration-underline">Host:</span> <%= event.host.firstName %> <%= '' %> <%= event.host.lastName %>  <br> </li>
                     <li><span class="fw-bold text-decoration-underline">Dates and Time:</span>
                         <!-- Convert Data object to a string, representing data/time -->
@@ -40,6 +32,12 @@
                     </li>
                     <li><span class="fw-bold text-decoration-underline">Location:</span> <%= event.location %> <br> </li>
                     <li><span class="fw-bold text-decoration-underline">Details:</span> <%= event.details %></li> 
+                    <!-- Display total number of 'YES' responses -->
+                    <li>
+                        <span class="fw-bold text-decoration-underline">Number of rsvps:</span> 
+                        <!-- if event rsvp exist, return the number of rsvp. If not, return 0 -->
+                        <%= event.rsvps ? event.rsvps.filter(rsvp => rsvp.status === 'YES').length : 0 %>
+                    </li>
                 </ul>
                 <br>
             </div>
