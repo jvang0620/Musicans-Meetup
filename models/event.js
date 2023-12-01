@@ -1,5 +1,6 @@
 //require mongoose so we can use it in this file
 const mongoose = require('mongoose');
+const Rsvp = require('./rsvp');
 const Schema = mongoose.Schema;
 
 const eventSchema = new Schema({

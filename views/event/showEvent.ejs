@@ -6,21 +6,19 @@
             <h1><span class="fw-bold"><%= event.title %></span></h1>
             <br>
 
-            <h5 class="mr-2">Going?</h5>
-            <div class="col-6 d-flex align-items-center">
-    
-                <form method="#" action="#" class="mr-3 col-auto">
-                    <button type="submit" class="btn btn-success btn-primary btn-sm btn-action">Yes</button>
-                </form>
-                
-                <form method="#" action="#" class="mr-3 col-auto">
-                    <button type="submit" class="btn btn-danger btn-primary btn-sm btn-action">No</button>
-                </form>
-                
-                <form method="#" action="#" class="col-auto ml-3">
-                    <button type="submit" class="btn btn-primary btn-primary btn-sm btn-action">Maybe</button>
-                </form>
-            </div>
+            <!-- Display RSVP buttons -->
+            <form method="POST" action="/events/<%= event._id %>/rsvp">
+                <h5>Going?</h5>
+                <button type="submit" name="status" value="YES" class="btn btn-success btn-sm btn-action">Yes</button>
+                <button type="submit" name="status" value="NO" class="btn btn-danger btn-sm btn-action">No</button>
+                <button type="submit" name="status" value="MAYBE" class="btn btn-primary btn-sm btn-action">Maybe</button>
+            </form>
+
+            <!-- Display total number of 'YES' responses -->
+            <!-- <p>Total 'YES' RSVPs: <%= event.rsvps.filter(rsvp => rsvp.status === 'YES').length %></p> -->
+
+            
+
 
             <br>
 
