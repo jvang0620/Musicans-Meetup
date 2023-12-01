@@ -2,15 +2,9 @@
 * This module is used to define all routes related to event requests
 *******************************************************************/
 
-//Since we are going to use express router object, we need to import express module
 const express = require('express');
-
-//In order to use eventOntroller.js, we must import it
 const eventController = require('../controllers/eventController');
-
-//require fileUpload.js
-const {fileUpload} = require('../middlewares/fileUpload'); //import to use middleware
-
+const {fileUpload} = require('../middlewares/fileUpload'); 
 const {isLoggedIn, isHost} = require('../middlewares/auth');
 const {validateId} = require('../middlewares/validator');
 
