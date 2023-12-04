@@ -4,6 +4,9 @@
     <div class="index-main-margin" id="index-main-margin">
         <h2>Welcome, <%=user.firstName%> <%=user.lastName%></h2>
 
+        <br><br>
+
+        <h4>My Events</h4>
         <% if(events.length) { %>
             <p>You have created the following events:</p>
             <div class="table-container table-responsive">
@@ -65,7 +68,60 @@
                 </table>
             </div>
         <% } else { %>
-            <p>You have NOT created any events.</p>
+            <p>You have <span class="fw-bold">NOT</span> created any events.</p>
+        <% } %>
+
+        <br><br><br>
+
+        <h4>My RSVPs</h4>
+        <% if (rsvps.length) { %>
+            <p>You have RSVPed to the following events:</p>
+            <div class="table-container table-responsive">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Title</th>
+                            <th>Category</th>
+                            <th>Going?</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <% rsvps.forEach(rsvp => { %>
+                            <tr>
+                                <td>
+                                    <!-- Check if rsvp.event and rsvp.event id exists and has properties -->
+                                    <% if (rsvp.event && rsvp.event._id) { %>
+                                        <a class="navbar-brand d-flex" href="/events/<%= rsvp.event._id %>">
+                                            <p class="text-center pt-3"><%= rsvp.event.title %></p>
+                                        </a>
+                                    <% } else { %>
+                                        <p class="text-center pt-3">Event Not Found</p>
+                                    <% } %>
+                                </td>
+                                <td>
+                                    <!-- Check if rsvp.event and rsvp.event cateogry exists and has properties -->
+                                    <% if (rsvp.event && rsvp.event.category) { %>
+                                        <a class="navbar-brand d-flex">
+                                            <p class="text-center pt-3"><%= rsvp.event.category %></p>
+                                        </a>
+                                    <% } else { %>
+                                        <p class="text-center pt-3">Category Not Found</p>
+                                    <% } %>
+                                </td>
+                                <td class="pt-3">
+                                    <!-- Display the RSVP status -->
+                                    <p class="pt-3"><%= rsvp.status %></p>
+                                    
+
+                                </td>
+                            </tr>
+                            <br>
+                        <% }); %>
+                    </tbody>
+                </table>
+            </div>
+        <% } else { %>
+            <p>You have <span class="fw-bold">NOT</span> RSVPed to any events.</p>
         <% } %>
     </div>
 </main>

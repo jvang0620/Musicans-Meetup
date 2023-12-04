@@ -34,9 +34,15 @@
                     <li><span class="fw-bold text-decoration-underline">Details:</span> <%= event.details %></li> 
                     <!-- Display total number of 'YES' responses -->
                     <li>
-                        <span class="fw-bold text-decoration-underline">Number of rsvps:</span> 
-                        <!-- if event rsvp exist, return the number of rsvp. If not, return 0 -->
-                        <%= event.rsvps ? event.rsvps.filter(rsvp => rsvp.status === 'YES').length : 0 %>
+
+                        <span class="fw-bold text-decoration-underline">Number of RSVP:</span> 
+
+                        <!-- calculates and displays the count of "YES" responses for the current event in EJS template. -->
+                        <!-- event.rsvps: Accesses the array of RSVPs associated with the event object.
+                        .filter(rsvp => rsvp.status === 'YES'): Filters the RSVPs array to only include those with a status equal to 'YES'.
+                        .length: Returns the number of elements in the filtered array, which represents the count of "YES" responses for that event. -->
+                        <%= event.rsvps.filter(rsvp => rsvp.status === 'YES').length %>
+                        
                     </li>
                 </ul>
                 <br>

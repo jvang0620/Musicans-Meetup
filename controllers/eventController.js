@@ -100,30 +100,36 @@ exports.create = (req, res, next) => {
 exports.show = (req, res, next) => {
     let id = req.params.id;
 
-    Event.findById(id).populate('host', '_id firstName lastName')
-    .then(event => {
-        // Fetch the user details using the user ID
-        User.findById(req.session.user)
-            .then(user => {
+    Event.findById(id)
+        .populate('host', '_id firstName lastName')
+        .populate('rsvps')
+        .then(event => {
 
-                //check if an event and a user exist. If true, pass both event & user obejects to the view template
-                if(event && user) {
-                    res.render('./event/showEvent.ejs', {event, user});
-                } 
+             // Add this line for debugging*******
+            // console.log('Event RSVPs:', event.rsvps);
 
-                //implement this condition so guest can view event listing
-                //if event exist
-                else if (event) {
-                    res.render('./event/showEvent.ejs', {event});
-                }
-                else {
-                    let err = new Error(' with id ' + id);
-                    err.status = 404;
-                    next(err);
-                }
-            })
-            .catch(err => next(err));
-    })
+            // Fetch the user details using the user ID
+            User.findById(req.session.user)
+                .then(user => {
+
+                    //check if an event and a user exist. If true, pass both event & user obejects to the view template
+                    if(event && user) {
+                        res.render('./event/showEvent.ejs', {event, user});
+                    } 
+
+                    //implement this condition so guest can view event listing
+                    //if event exist
+                    else if (event) {
+                        res.render('./event/showEvent.ejs', {event});
+                    }
+                    else {
+                        let err = new Error(' with id ' + id);
+                        err.status = 404;
+                        next(err);
+                    }
+                })
+                .catch(err => next(err));
+        })
     .catch(err => next(err));
 };
 
@@ -212,36 +218,54 @@ exports.delete = (req, res, next) => {
 **************************/
 exports.rsvp = (req, res, next) => {
 
-    //what the user selcted (Yes, NO, Maybe) will be in the req.body.status and assignmed to 'buttonSelected'.
+    // What the user selected (Yes, NO, Maybe) will be in the req.body.status and assigned to 'buttonSelected'.
     let buttonSelected = req.body.status;
 
-    Rsvp.findOne({event: req.params.id, user: req.session.user})
-    .then(rsvp => {
-        if(rsvp) {
-            //Uncomment to see what response is (for testing)
-            // console.log(buttonSelected);
+    // Add these lines for debugging*******
+    // console.log('Selected RSVP status:', buttonSelected);
+    // console.log('Require Parameters ID', req.params.id);
+    // console.log('Users Session', req.session.user);
 
-            Rsvp.findByIdAndUpdate(rsvp._id, {response: buttonSelected}, {useFindAndModify: false})
-            .then(result => {
-                // req.flash('success', `You have changed your RSVP from ${rsvp.status} to ${response}`);
-                req.flash('success', `You have changed your RSVP to ${buttonSelected}`);
-                res.redirect('/users/profile');
-            })
-            .catch(err => next(err));
-        } 
-        else {
-            rsvp = new Rsvp({
-                event: req.params.id,
-                user: req.session.user,
-                status: buttonSelected 
-            });
-            rsvp.save()
-            .then(result => {
-                req.flash('success', `You have RSVP with ${buttonSelected}`);
-                res.redirect('/users/profile');
-            })
-            .catch(err => next(err));
-        }
-    })
+    Rsvp.findOne({ event: req.params.id, user: req.session.user })
+        .then(rsvp => {
+
+            // Add this line for debugging*******
+            // console.log('Existing RSVP:', rsvp);
+
+            if (rsvp) {
+                Rsvp.findByIdAndUpdate(rsvp._id, { status: buttonSelected }, { useFindAndModify: false })
+                    .then(result => {
+
+                        // Add this line for debugging*******
+                        // console.log('Updated RSVP result:', result);
+
+                        req.flash('success', `You successfully updated your RSVP for this event from ${rsvp.status} to ${buttonSelected}!`);
+                        res.redirect('/users/profile');
+                    })
+                .catch(err => next(err));
+            } 
+            else {
+                rsvp = new Rsvp({
+                    event: req.params.id,
+                    user: req.session.user,
+                    status: buttonSelected
+                });
+                rsvp.save()
+                    .then(result => {
+
+                        // Add this line for debugging*******
+                        // console.log('Saved new RSVP result:', result);
+
+                        // Update the event's rsvps array
+                        Event.findByIdAndUpdate(req.params.id, { $addToSet: { rsvps: result._id } }, { useFindAndModify: false })
+                            .then(() => {
+                                req.flash('success', `You successfully created a RSVP for this event! You selected ${buttonSelected}.`);
+                                res.redirect('/users/profile');
+                            })
+                        .catch(err => next(err));
+                    })
+                .catch(err => next(err));
+            }
+        })
     .catch(err => next(err));
 };
