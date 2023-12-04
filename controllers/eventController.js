@@ -199,18 +199,22 @@ exports.update = (req, res, next) => {
 exports.delete = (req, res, next) => {
     let id = req.params.id;
 
-    Event.findByIdAndDelete(id, {useFindAndModify: false})
-    .then(event => { //returns a event that is being deleted
-        if(event) { //if there is a event
-            req.flash('success', 'Event Was Deleted Successfully!');
-            res.redirect('/events');
-        } else {
-            let err = new Error('Cannot find a event with id ' + id);
-            err.status = 404;
-            next(err);
-        }
-    }) 
-    .catch(err => next(err));
+    Rsvp.deleteMany({ event: id }) //"delete all RSVPs where the event field matches the given id"
+        .then(() => {
+            // After deleting associated RSVPs, delete the event with the id
+            return Event.findByIdAndDelete(id, { useFindAndModify: false });
+        })
+        .then(event => { //returns a event that is being deleted
+            if (event) { //if there is a event
+                req.flash('success', 'Event and associated RSVPs were deleted successfully!');
+                res.redirect('/events');
+            } else {
+                let err = new Error('Cannot find a event with id ' + id);
+                err.status = 404;
+                next(err);
+            }
+        })
+        .catch(err => next(err));
 };
 
 /*************************
