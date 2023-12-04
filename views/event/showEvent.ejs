@@ -5,13 +5,19 @@
             <h1><span class="fw-bold"><%= event.title %></span></h1>
             <br>
 
-            <!-- Display RSVP buttons -->
-            <form method="POST" action="/events/<%= event._id %>/rsvp">
-                <h5>Going?</h5>
-                <button type="submit" name="status" value="YES" class="btn btn-success btn-sm btn-action">Yes</button>
-                <button type="submit" name="status" value="NO" class="btn btn-danger btn-sm btn-action">No</button>
-                <button type="submit" name="status" value="MAYBE" class="btn btn-primary btn-sm btn-action">Maybe</button>
-            </form>
+            <!-- Display RSVP buttons only if the logged-in user is not the host -->
+            <% if (!user || (user && user._id.toString() !== event.host._id.toString())) { %> <!--Condition is true if either (there is no user logged in or there is a user loggged in but they are not the host of the crrent event)-->
+                <form method="POST" action="/events/<%= event._id %>/rsvp">
+                    <h5>Going?</h5>
+                    <button type="submit" name="status" value="YES" class="btn btn-success btn-sm btn-action">Yes</button>
+                    <button type="submit" name="status" value="NO" class="btn btn-danger btn-sm btn-action">No</button>
+                    <button type="submit" name="status" value="MAYBE" class="btn btn-primary btn-sm btn-action">Maybe</button>
+                </form>
+            <% } else { %>
+                <!-- Display a message or anything else for the host -->
+                <p class="bg-warning d-inline-block fw-bold">**You are the host of this event.**</p>
+
+            <% } %>
 
             <br>
 
