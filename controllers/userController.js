@@ -9,6 +9,13 @@ exports.new = (req, res)=>{
 exports.create = (req, res, next)=>{
 
     let user = new User(req.body);
+
+    //If user email exist
+    if(user.email) {
+        //convert email letts to lower case before storing into database
+        user.email = user.email.toLowerCase();
+    }
+
     user.save()
     .then(user => {
         req.flash('success', 'Registration Succeeded!');
@@ -34,6 +41,13 @@ exports.getUserLogin = (req, res, next) => {
 exports.login = (req, res, next)=>{
 
     let email = req.body.email;
+
+    //if email exist
+    if(email) {
+        //convert email letters to lower case. Afterward, compare it to the one stored in the database
+        email = email.toLowerCase();
+    }
+
     let password = req.body.password;
     User.findOne({ email: email })
     .then(user => {

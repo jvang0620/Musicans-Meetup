@@ -5,8 +5,8 @@
 const express = require('express');
 const eventController = require('../controllers/eventController');
 const {fileUpload} = require('../middlewares/fileUpload'); 
-const {isLoggedIn, isHost} = require('../middlewares/auth');
-const {validateId} = require('../middlewares/validator');
+const {isLoggedIn, isHost, isNotHost} = require('../middlewares/auth');
+const {validateId, validateResult, validateEvent, validateRsvp} = require('../middlewares/validator');
 
 //router object
 const router = express.Router();
@@ -25,7 +25,7 @@ router.get('/', eventController.index);
 router.get('/new', isLoggedIn, eventController.new);
 
 //Post /events: creat a new event
-router.post('/', isLoggedIn, fileUpload, eventController.create);
+router.post('/', isLoggedIn, fileUpload, validateEvent, validateResult, eventController.create);
 
 //GET /events/:id send details of event indetified by id
 router.get('/:id', validateId, eventController.show);
@@ -34,13 +34,13 @@ router.get('/:id', validateId, eventController.show);
 router.get('/:id/edit', validateId, isLoggedIn, isHost, eventController.edit);
 
 //PUT (used to update the event) / events/:id update the event identified by id
-router.put('/:id', validateId, isLoggedIn, isHost, fileUpload, eventController.update);
+router.put('/:id', validateId, isLoggedIn, fileUpload, isHost, validateEvent, validateResult, eventController.update);
 
 //Delete /events/:id: delete the event identified by id
-router.delete('/:id', validateId, isLoggedIn, isHost,  eventController.delete);
+router.delete('/:id', validateId, isLoggedIn, isHost, eventController.delete);
 
 // POST /events/:id/rsvp: handle all RSVP submissions
-router.post('/:id/rsvp', isLoggedIn, validateId, eventController.rsvp);
+router.post('/:id/rsvp', isLoggedIn, validateId, isNotHost, validateRsvp, validateResult, eventController.rsvp);
 
 
 

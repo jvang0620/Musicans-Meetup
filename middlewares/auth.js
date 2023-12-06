@@ -66,6 +66,28 @@ exports.isHost = (req, res, next) => {
     .catch(err => next(err));
 };
 
-
-
-
+//check if user IS NOT the host of the event
+exports.isNotHost = (req, res, next) => {
+    let id = req.params.id;
+    Event.findById(id)
+    .then(event => {
+        if(event) {
+            //if the host ARE NOT the same
+            if(event.host != req.session.user) {
+                next();
+            } 
+            //otherwise, if they are the same
+            else {
+                let err = new Error('Unauthorized Access to resource. Cannot RSVP to your own event!');
+                err.status = 401;
+                next(err);
+            }
+        } 
+        else {
+            let err = new Error(`Cannot find event with id ${id}`);
+            err.status = 404;
+            next(err);
+        }
+    })
+    .catch(err => next(err));
+  }

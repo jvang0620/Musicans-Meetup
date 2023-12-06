@@ -225,23 +225,12 @@ exports.rsvp = (req, res, next) => {
     // What the user selected (Yes, NO, Maybe) will be in the req.body.status and assigned to 'buttonSelected'.
     let buttonSelected = req.body.status;
 
-    // Add these lines for debugging*******
-    // console.log('Selected RSVP status:', buttonSelected);
-    // console.log('Require Parameters ID', req.params.id);
-    // console.log('Users Session', req.session.user);
-
     Rsvp.findOne({ event: req.params.id, user: req.session.user })
         .then(rsvp => {
-
-            // Add this line for debugging*******
-            // console.log('Existing RSVP:', rsvp);
 
             if (rsvp) {
                 Rsvp.findByIdAndUpdate(rsvp._id, { status: buttonSelected }, { useFindAndModify: false })
                     .then(result => {
-
-                        // Add this line for debugging*******
-                        // console.log('Updated RSVP result:', result);
 
                         req.flash('success', `You successfully updated your RSVP for this event from ${rsvp.status} to ${buttonSelected}!`);
                         res.redirect('/users/profile');
@@ -256,9 +245,6 @@ exports.rsvp = (req, res, next) => {
                 });
                 rsvp.save()
                     .then(result => {
-
-                        // Add this line for debugging*******
-                        // console.log('Saved new RSVP result:', result);
 
                         // Update the event's rsvps array
                         Event.findByIdAndUpdate(req.params.id, { $addToSet: { rsvps: result._id } }, { useFindAndModify: false })
