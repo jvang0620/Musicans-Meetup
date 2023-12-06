@@ -35,15 +35,17 @@ exports.validateSignup = [
   body('firstName', 'First name field is required').notEmpty().trim().escape(),
   body('lastName', 'Last name field is required').notEmpty().trim().escape(),
   body('email', 'Email field is required').notEmpty().isEmail().trim().escape().normalizeEmail(),
-  body('password', 'Password must be at least 8 characters and at most 64 characters').notEmpty().trim().isLength({min: 8, max: 64})];
+  body('password', 'Password must be at least 8 characters and at most 64 characters').notEmpty().trim().isLength({min: 8, max: 64})
+];
 
 
 /*************************************************
 * middleware function that validate Log in inputs
 **************************************************/
 exports.validateLogIn = [
-  body('email', 'Email is not valid. Should be a format like this (abcdef@gmail.com)').notEmpty().isEmail().trim().escape().normalizeEmail(),
-  body('password', 'Password must be at least 8 characters and at most 64 characters').notEmpty().trim().isLength({min: 8, max: 64})];
+  body('email', 'Email is not valid. Should be a format like this: (example@example.com)').notEmpty().isEmail().trim().escape().normalizeEmail(),
+  body('password', 'Password must be at least 8 characters and at most 64 characters').notEmpty().trim().isLength({min: 8, max: 64})
+];
 
 
 /*********************************************************
