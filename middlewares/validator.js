@@ -95,6 +95,7 @@ exports.validateEvent = [
     })
     .trim().escape(),
   body('location', 'Location is required').notEmpty().trim().escape(),
+  body('image', 'Image is required').notEmpty(),
 
 ];
 
