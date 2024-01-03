@@ -2,7 +2,7 @@
 
 <!-- Event Listing -->
 
-![Musicans Meetup Event Listing](\public\images\img-readmeMd/eventlistings.PNG)
+![Musicans Meetup Event Listing](/public/images/img-readmeMd/eventlistings.PNG)
 
 <!-- Description of App -->
 
