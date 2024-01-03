@@ -1,10 +1,6 @@
 .vscode
-img_musicians
-img-musician-icon
-img-musician-meetup
-img-musicians-tryouts
-img-upload
 node_modules
+.env
 package-lock.json
 package.json
-.env
+images
