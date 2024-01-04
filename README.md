@@ -24,7 +24,7 @@ For my final project in ITSC 4166 at UNCC, I developed Musicians Meetup and inco
 - Incorporation of file upload capabilities using express-fileupload
 - Utilization of MongoDB Atlas for efficient and secure data storage
 
-<!-- Developed Using-->
+<!-- Developed Using -->
 
 ### Developed Using
 
@@ -54,7 +54,6 @@ To run Musicians Meetup on your local machine, please follow the steps below:
 
 <!-- MARKDOWN LINKS & IMAGES -->
 
-[product-screenshot]: public/images/screenshot.png
 [Node.js]: https://img.shields.io/badge/node.js-7FC729?style=for-the-badge&logo=nodedotjs&logoColor=white
 [Node-url]: https://nextjs.org/
 [Express.js]: https://img.shields.io/badge/express-EEEEEE?style=for-the-badge&logo=express&logoColor=black
