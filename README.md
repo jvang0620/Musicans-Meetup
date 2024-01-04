@@ -41,14 +41,14 @@ For my final project in ITSC 4166 at UNCC, I developed Musicians Meetup and inco
 To run Musicians Meetup on your local machine, please follow the steps below:
 
 1. Clone the repository to your local machine one of the following:
-   HTTPS: <pre><code>git clone https://github.com/jvang0620/MusiciansMeetup.git</code></pre>
-   SSH: <pre><code>git clone git@github.com:jvang0620/MusiciansMeetup.git</code></pre>
+   HTTPS: <pre><code>git clone https://github.com/jvang0620/Musicians-Meetup.git</code></pre>
+   SSH: <pre><code>git clone git@github.com:jvang0620/Musicians-Meetup.git</code></pre>
 
-2. Install [Node](https://nodejs.org/en "Node Homepage") and install the necessary dependencies by running `npm i` in the project root directory:
+2. Install [Node](https://nodejs.org/en "Node Homepage") and install the necessary dependencies by running `npm install` in the project root directory:
 
 3. Create a `.env` file in the root directory of the project following the `.env.sample` as a guide:
 
-4. Start the server by running `npm start`:
+4. Start the server by running `nondemon app`:
 
 5. Navigate to `http://localhost:3000` or `http://<env.HOST>:<env.PORT>` in your browser to access Musicians Meetup
 
