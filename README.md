@@ -6,6 +6,8 @@
 
 <!-- Description of App -->
 
+#### Overview
+
 This Fullstack MVC Express.js application serves as a dynamic and engaging social media platform tailored for seamlessly hosting and coordinating both in-person and virtual activities, gatherings, and events. It provides a centralized hub for individuals and communities with shared interests, hobbies, and professions to come together and connect. Whether it's organizing a local meetup, planning a virtual workshop, or coordinating a professional networking event, the platform empowers users to create, discover, and participate in a wide array of activities that resonate with their passions and preferences. With its intuitive interface and robust features, the application fosters a sense of community, making it easier for like-minded individuals to build connections and share meaningful experiences.
 
 For my final project in ITSC 4166 at UNCC, I developed Musicians Meetup and incorporated additional features to enhance its functionality.
