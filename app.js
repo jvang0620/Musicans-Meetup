@@ -34,7 +34,7 @@ const host = process.env.HOST || 'localhost';
 const dataBase_user = process.env.USER;
 const dataBase_password = process.env.PASS;
 const project = process.env.PROJECT;
-let MongoDBAtlas_URL = `mongodb+srv://${dataBase_user}:${dataBase_password}@cluster0.gwzulku.mongodb.net/${project}?retryWrites=true&w=majority`; 
+let MongoDBAtlas_URL = `mongodb+srv://jv2710:wt6RBlbFBDvHlr0M@cluster0.gwzulku.mongodb.net/nbda-project3?retryWrites=true&w=majority`; 
 app.set('view engine', 'ejs'); 
 
 /*************************
