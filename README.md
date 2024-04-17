@@ -50,7 +50,7 @@ To run Musicians Meetup on your local machine, please follow the steps below:
 
 3. Create a `.env` file in the root directory of the project following the `.env.sample` as a guide:
 
-4. Start the server by running `nondemon app`:
+4. Start the server by running `nodemon app`:
 
 5. Navigate to `http://localhost:3000` or `http://<env.HOST>:<env.PORT>` in your browser to access Musicians Meetup
 
